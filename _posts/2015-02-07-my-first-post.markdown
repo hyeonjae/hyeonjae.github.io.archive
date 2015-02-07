@@ -18,7 +18,7 @@ $ ./configure
 $ make && make install
 $ yum install rubygems
 $ yum install ruby-devel
-{% end highlight %}
+{% endhighlight %}
 
 # Jekyll
 {% highlight sh %}
@@ -28,5 +28,5 @@ $ gem install therubyracer
 
 $ cd ~
 $ jekyll new my-awesome-site
-{% end highlight %}
+{% endhighlight %}
 
