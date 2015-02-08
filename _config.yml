@@ -7,7 +7,7 @@ baseurl:     ""
 url:         "http://pixyll.com"
 
 # Google analytics
-google_analytics:
+#google_analytics:
 
 # Optional features
 animated:           false
@@ -31,11 +31,11 @@ flattr_button:
 
 # Build settings
 markdown:     kramdown
-redcarpet:
-  extensions: ['smart', 'tables', 'with_toc_data']
+#redcarpet:
+#  extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    pretty
 paginate:     3
 sass:
   compressed: true
-gems:
-  - jekyll-sitemap
+#gems:
+#  - jekyll-sitemap
