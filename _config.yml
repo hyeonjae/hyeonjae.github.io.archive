@@ -1,41 +1,20 @@
-# Site settings
-title:       Hyeonjae Blog
-email:       hyeonjae.park@nhnent.com
-author:      Hyeonjae
-description: "Blog for IT"
-baseurl:     ""
-url:         "http://hyeonjae.github.io"
+# General
+name: Hyenojae Blog
+description: "Hyeonjae's blog"
+url: http://hyeonjae.github.io
 
-# Google analytics
-#google_analytics:
+markdown: kramdown
+highlighter: pygments
 
-# Optional features
-animated:           false
-show_related_posts: false
-show_post_footers:  false
-show_social_icons:  false
+paginate: 5
+permalink: /:title
 
-# Disqus post comments
-# (leave blank to disable Disqus)
-disqus_shortname: "hyeonjae"
+# Social share and comments.
+disqus-id: hyeonjae
+twitter: 
+github: hyeonjae
+google: 
 
-# Social icons
-github_username: "hyeonjae"
-stackoverflow_id:
-twitter_username:
-google_plus_id:
-linkedin_username:
-bitcoin_url:
-paypal_url:
-flattr_button:
-
-# Build settings
-markdown:     kramdown
-#redcarpet:
-#  extensions: ['smart', 'tables', 'with_toc_data']
-permalink:    pretty
-paginate:     3
-sass:
-  compressed: true
-#gems:
-#  - jekyll-sitemap
+# RSS feed
+rss-feed-limit: 10
+rss-show-full: "no"
