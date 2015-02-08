@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pixyll</title>
-    <description>A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.</description>
-    <link>http://pixyll.com/</link>
-    <atom:link href="http://pixyll.com/feed.xml" rel="self" type="application/rss+xml" />
+    <title>Hyeonjae Blog</title>
+    <description>Blog for IT</description>
+    <link>http://hyeonjae.github.io/</link>
+    <atom:link href="http://hyeonjae.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Let&#39;s start to Jekyll!</title>
@@ -34,8 +34,8 @@
 
 </description>
         <pubDate>Sun, 08 Feb 2015 04:42:00 +0900</pubDate>
-        <link>http://pixyll.com/jekyll/update/2015/02/08/my-first-post/</link>
-        <guid isPermaLink="true">http://pixyll.com/jekyll/update/2015/02/08/my-first-post/</guid>
+        <link>http://hyeonjae.github.io/jekyll/update/2015/02/08/my-first-post/</link>
+        <guid isPermaLink="true">http://hyeonjae.github.io/jekyll/update/2015/02/08/my-first-post/</guid>
       </item>
     
       <item>
@@ -56,8 +56,8 @@
 
 </description>
         <pubDate>Sat, 07 Feb 2015 23:57:13 +0900</pubDate>
-        <link>http://pixyll.com/jekyll/update/2015/02/07/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://pixyll.com/jekyll/update/2015/02/07/welcome-to-jekyll/</guid>
+        <link>http://hyeonjae.github.io/jekyll/update/2015/02/07/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://hyeonjae.github.io/jekyll/update/2015/02/07/welcome-to-jekyll/</guid>
       </item>
     
   </channel>
