@@ -13,6 +13,11 @@ On July 3, the Black Knights, a squadron of Marine Corps F/A-18 Hornets, partici
 ---
 
 ## Headings
+```
+# head1 tag
+## head2 tag
+### head3 tag
+```
 
 # head1 tag
 
@@ -23,6 +28,10 @@ On July 3, the Black Knights, a squadron of Marine Corps F/A-18 Hornets, partici
 ---
 
 ## Blockquotes
+```
+In the words of Abraham Lincoln: 
+> Pardon my frecnch 
+```
 
 In the words of Abraham Lincoln: 
 > Pardon my frecnch 
@@ -30,6 +39,12 @@ In the words of Abraham Lincoln:
 ---
 
 ## Styling text
+```
+*This text will be italic*
+**This text will bel bold**
+**Everyone _must_ attend the metting at 5 o'clock today.**
+```
+
 *This text will be italic*
 **This text will bel bold**
 **Everyone _must_ attend the metting at 5 o'clock today.**
@@ -37,9 +52,23 @@ In the words of Abraham Lincoln:
 ---
 
 ## Unordered lists
+
+```
 * Item1
 * Item2
 * Item3
+```
+
+* Item1
+* Item2
+* Item3
+
+```
+- Item1
+- Item2
+- Item3
+```
+
 - Item1
 - Item2
 - Item3
