@@ -4,6 +4,8 @@ description: "Hyeonjae's blog"
 url: http://hyeonjae.github.io
 
 markdown: kramdown
+kramdown:
+	input: GFM
 highlighter: pygments
 
 paginate: 5
