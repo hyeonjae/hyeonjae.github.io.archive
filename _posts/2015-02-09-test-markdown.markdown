@@ -2,13 +2,14 @@
 layout: post
 title:  "Test Markdown"
 date:   2015-02-10 09:44:00
-categories: jekyll update
+categories: markdown
 ---
 
 ## paragraphs
 
 On July 2, an alien mothership entered Earth's orbit and deployed several dozen saucer-shaped "destroyer" spacecraft, each 15 miles (24 km) wide.
 On July 3, the Black Knights, a squadron of Marine Corps F/A-18 Hornets, participated in an assault on a destroyer near the city of Los Angeles.
+
 ---
 
 ## Headings
@@ -18,18 +19,21 @@ On July 3, the Black Knights, a squadron of Marine Corps F/A-18 Hornets, partici
 ## head2 tag
 
 ### head3 tag
+
 ---
 
 ## Blockquotes
 
 In the words of Abraham Lincoln: 
 > Pardon my frecnch
+> 
 ---
 
 ## Styling text
 *This text will be italic*
 **This text will bel bold**
 **Everyone _must_ attend the metting at 5 o'clock today.**
+
 ---
 
 ## Unordered lists
@@ -45,6 +49,7 @@ In the words of Abraham Lincoln:
 1. Item 1
 2. Item 2
 3. Item 3
+
 ---
 
 ## Nested LIst
@@ -56,6 +61,7 @@ In the words of Abraham Lincoln:
     * This is indented four spaces, because it's two spaces further than the item above.
     * You might want to consider making a new list.
 3. Item 3
+
 ---
 
 ## Code formatting
