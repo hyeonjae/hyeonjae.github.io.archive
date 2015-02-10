@@ -25,8 +25,8 @@ On July 3, the Black Knights, a squadron of Marine Corps F/A-18 Hornets, partici
 ## Blockquotes
 
 In the words of Abraham Lincoln: 
-> Pardon my frecnch
-> 
+> Pardon my frecnch 
+
 ---
 
 ## Styling text
@@ -43,6 +43,7 @@ In the words of Abraham Lincoln:
 - Item1
 - Item2
 - Item3
+
 ---
 
 ## Ordered Lists
