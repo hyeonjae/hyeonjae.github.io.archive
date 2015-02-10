@@ -3,10 +3,9 @@ name: Hyeonjae Blog
 description: "Hyeonjae's blog"
 url: http://hyeonjae.github.io
 
-markdown: kramdown
-kramdown:
-  input: GFM
+markdown: redcarpet
 highlighter: pygments
+pygments_options: ['lineanchors', 'lineos=table']
 
 paginate: 5
 permalink: /:title
