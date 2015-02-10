@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "상속과 포함"
+date:   2015-02-10 09:44:00
+categories: oop
+---
+
+
+
+STL의 list 자료구조로 stack을 구현하는 방법엔 크게 두가지 방법이 있다.
+
+먼저 상속으로 구현
+
+### 상속으로 구현
+```cpp
+#include <vector>
+#include <list>
+using namespace std;
+
+template<typename T> class stack : private list<T>
+{
+public:
+	inline void push( const T& a ) { push_back(a); }
+	inline void pop()		    { pop_back(); }
+	inline T&   top()		    { return back(); }
+};
+```
+
+
+
+### 포함으로 구현
+```cpp
+#include <vector>
+#include <list>
+using namespace std;
+
+template<typename T> class stack
+{
+private:
+	list<T> st;
+public:
+	inline void push( const T& a ) { st.push_back(a); }
+	inline void pop()		    { st.pop_back(); }
+	inline T&   top()		    { st.return back(); }
+};
+```
+
+
