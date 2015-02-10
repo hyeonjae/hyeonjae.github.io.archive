@@ -5,7 +5,7 @@ url: http://hyeonjae.github.io
 
 markdown: kramdown
 kramdown:
-	input: GFM
+  input: GFM
 highlighter: pygments
 
 paginate: 5
