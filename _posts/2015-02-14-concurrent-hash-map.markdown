@@ -95,41 +95,41 @@ static final class HashEntry<K,V> {
 
 JDK1.7의 HashEntry
 {% highlight java %}
-    static final class HashEntry<K,V> {
-        final int hash;
-        final K key;
-        volatile V value;
-        volatile HashEntry<K,V> next;
+static final class HashEntry<K,V> {
+    final int hash;
+    final K key;
+    volatile V value;
+    volatile HashEntry<K,V> next;
 
-        HashEntry(int hash, K key, V value, HashEntry<K,V> next) {
-            this.hash = hash;
-            this.key = key;
-            this.value = value;
-            this.next = next;
-        }
+    HashEntry(int hash, K key, V value, HashEntry<K,V> next) {
+        this.hash = hash;
+        this.key = key;
+        this.value = value;
+        this.next = next;
+    }
 
-        /**
-         * Sets next field with volatile write semantics.  (See above
-         * about use of putOrderedObject.)
-         */
-        final void setNext(HashEntry<K,V> n) {
-            UNSAFE.putOrderedObject(this, nextOffset, n);
-        }
+    /**
+     * Sets next field with volatile write semantics.  (See above
+     * about use of putOrderedObject.)
+     */
+    final void setNext(HashEntry<K,V> n) {
+        UNSAFE.putOrderedObject(this, nextOffset, n);
+    }
 
-        // Unsafe mechanics
-        static final sun.misc.Unsafe UNSAFE;
-        static final long nextOffset;
-        static {
-            try {
-                UNSAFE = sun.misc.Unsafe.getUnsafe();
-                Class k = HashEntry.class;
-                nextOffset = UNSAFE.objectFieldOffset
-                    (k.getDeclaredField("next"));
-            } catch (Exception e) {
-                throw new Error(e);
-            }
+    // Unsafe mechanics
+    static final sun.misc.Unsafe UNSAFE;
+    static final long nextOffset;
+    static {
+        try {
+            UNSAFE = sun.misc.Unsafe.getUnsafe();
+            Class k = HashEntry.class;
+            nextOffset = UNSAFE.objectFieldOffset
+                (k.getDeclaredField("next"));
+        } catch (Exception e) {
+            throw new Error(e);
         }
     }
+}
 {% endhighlight %}
 
 `HashEntry<K,V>`는 key-value로 이루어진 클래스다. ConcurrentHashMap의 가장 작은 단위이다.
