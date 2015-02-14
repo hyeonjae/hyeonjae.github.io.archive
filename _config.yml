@@ -3,7 +3,7 @@ name: Hyeonjae Blog
 description: "Hyeonjae's blog"
 url: http://hyeonjae.github.io
 
-markdown: redcarpet2
+markdown: redcarpet
 highlighter: pygments
 pygments_options: ['lineanchors', 'lineos=table']
 
