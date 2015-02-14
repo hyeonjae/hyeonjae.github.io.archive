@@ -7,7 +7,7 @@ categories: jekyll update
 Getting started with Jekyll in github.io
 
 # Ruby
-```sh
+{% highlight sh %}
 $ yum remove ruby ruby-devel
 $ yum groupinstall "Development Tools"
 $ yum install openssl-devel
@@ -18,16 +18,16 @@ $ ./configure
 $ make && make install
 $ yum install rubygems
 $ yum install ruby-devel
-```
+{% endhighlight %}
 
 
 # Jekyll
-```sh
+{% highlight sh %}
 $ gem install jekyll
 $ gem install bundler
 $ gem install therubyracer
 
 $ cd ~
 $ jekyll new my-awesome-site
-```
+{% endhighlight %}
 
