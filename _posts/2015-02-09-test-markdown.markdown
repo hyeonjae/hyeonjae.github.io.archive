@@ -95,13 +95,13 @@ In the words of Abraham Lincoln:
 ---
 
 ## Code formatting
-```
+{% highlight c %}
 x = 0
 x = 2 + 2
 what is x
-```
+{% endhighlight %}
 
-```python
+{% highlight python %}
 def hello(name):
 	prnit 'Hello,', name
-```
+{% endhighlight %}
