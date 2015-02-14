@@ -32,12 +32,12 @@ ConcurrentHashMap 구현의 주요 목표는 다음과 같다.
 
 ConcurrentHashMap은 ConcurrentMap 인터페이스와 AbstractMap 추상 클래스를 상속받았다. 
 
-```java
+{% highlight java %}
 public class ConcurrentHashMap<K,V> extends AbstractMap<K,V>
     implements ConcurrentMap<K,V>, Serializable {
         // ...
 }
-```
+{% endhighlight %}
 
 
 
@@ -72,7 +72,7 @@ JDK1.6과 JDK1.7을 비교보았다.
 각자 `HashEntry<K,V>` inner 클래스가 있다.
 
 JDK1.6의 HashEntry
-```java
+{% highlight java %}
 static final class HashEntry<K,V> {
     final K key;
     final int hash;
@@ -91,10 +91,10 @@ static final class HashEntry<K,V> {
         return new HashEntry[i];
     }
 }
-```
+{% endhighlight %}
 
 JDK1.7의 HashEntry
-```java
+{% highlight java %}
     static final class HashEntry<K,V> {
         final int hash;
         final K key;
@@ -130,7 +130,7 @@ JDK1.7의 HashEntry
             }
         }
     }
-```
+{% endhighlight %}
 
 `HashEntry<K,V>`는 key-value로 이루어진 클래스다. ConcurrentHashMap의 가장 작은 단위이다.
 
@@ -140,27 +140,27 @@ final, volatile를 적절히 잘 사용하여, 별도의 lock없이도 다른 th
 
 
 key값으로 value를 구하는 `get` 함수이다.
-```java
+{% highlight java %}
 public V get(Object key) {
     int hash = hash(key.hashCode());
     return segmentFor(hash).get(key, hash);
 }
-```
+{% endhighlight %}
 
 ConcurrentHashMap의 내부는 Segment(Reentrant Lock를 상속받은 클래스)들로 나누어져 있다. 
-```java
+{% highlight java %}
 static final class Segment<K,V> extends ReentrantLock implements Serializable {
     // ...
     transient volatile HashEntry<K,V>[] table;
     // ...
 }
-```
+{% endhighlight %}
 각 Segment에는 HashEntry배열이 table이라는 이름으로 있다.
 
 
 key값에 대해 `hashCode()`의 기준으로 별도의 hash함수로 해쉬값을 구한다.
 hash 알고리즘은 JDK1.8을 빼고 동일하다
-```java
+{% highlight java %}
 private static int hash(int h) {
     // Spread bits to regularize both segment and index locations,
     // using variant of single-word Wang/Jenkins hash.
@@ -171,20 +171,20 @@ private static int hash(int h) {
     h += (h <<   2) + (h << 14);
     return h ^ (h >>> 16);
 }
-```
+{% endhighlight %}
 
 
 각 segment는 이 해쉬값으로 찾는다. 해쉬값으로 segment를 찾는 함수는 아래와 같다.
 
 JDK1.6
-```java
+{% highlight java %}
 final Segment<K,V> segmentFor(int hash) {
     return segments[(hash >>> segmentShift) & segmentMask];
 }
-```
+{% endhighlight %}
 
 JDK1.7
-```java
+{% highlight java %}
 @SuppressWarnings("unchecked")
 private Segment<K,V> segmentForHash(int h) {
     long u = (((h >>> segmentShift) & segmentMask) << SSHIFT) + SBASE;
@@ -197,7 +197,7 @@ static final <K,V> Segment<K,V> segmentAt(Segment<K,V>[] ss, int j) {
     return ss == null ? null :
         (Segment<K,V>) UNSAFE.getObjectVolatile(ss, u);
 }
-```
+{% endhighlight %}
 
 
 
@@ -207,70 +207,70 @@ static final <K,V> Segment<K,V> segmentAt(Segment<K,V>[] ss, int j) {
 
 segment의 최대 허용 개수이다. 
 기본으로 1<<16 (2^15)로 세팅되어 있다. 
-```
+{% endhighlight %}
 static final int MAX_SEGMENTS = 1 << 16;
-```
+{% endhighlight %}
 
 #### concurrencyLevel
 
 ConcurrentHashMap의 생성자 3번째 인자로, MAX_SEGMENTS보다 크면 MAX_SEGMENTS값으로 세팅된다.
-```java
+{% highlight java %}
 if (concurrencyLevel > MAX_SEGMENTS)
     concurrencyLevel = MAX_SEGMENTS;
-```
+{% endhighlight %}
 
 ConcurrentHashMap 생성자에서 3번째 인자를 생략할 경우 기본값 DEFAULT_CONCURRENCY_LEVEL이 적용되고 이 값은 16으로 세팅되어 있다.
-```java
+{% highlight java %}
 static final int DEFAULT_CONCURRENCY_LEVEL = 16;
-```
+{% endhighlight %}
 
 #### ssize, sshift
 concurrencyLevel보다 같거나 큰, 가장 작은 2의 지수값과 그의 계수 값이 된다.
 concurrencyLevel이 16이면 sshift는 4, ssize는 16이 된다.
 concurrencyLevel이 16보다 크고 32보다 작은 값이면 (예 17) sshift는 5, ssize는 32가 된다.
-```java
+{% highlight java %}
 int sshift = 0;
 int ssize = 1;
 while (ssize < concurrencyLevel) {
     ++sshift;
     ssize <<= 1;
 }
-```
+{% endhighlight %}
 
 
 
 #### segmentShift, segmentMask
 sshift가 4, ssize가 16인 경우 
 segmentShift는 28이고, segmentMask는 15가 된다. (바이너리로 0b00000000_00000000_00000000_00001111)
-```java
+{% highlight java %}
 segmentShift = 32 - sshift;
 segmentMask = ssize - 1;
-```
+{% endhighlight %}
 
 
 생성자에서 ssize값만큼의 segment를 생성한다.
 
 JDK1.6
-```java
+{% highlight java %}
 @SuppressWarnings("unchecked")
 static final <K,V> Segment<K,V>[] newArray(int i) {
     return new Segment[i];
 }
 
 this.segments = Segment.newArray(ssize);
-```
+{% endhighlight %}
 
 JDK1.7 [4]
-```java
+{% highlight java %}
 Segment<K,V>[] ss = (Segment<K,V>[])new Segment[ssize];
 
 this.segments = ss;
-```
+{% endhighlight %}
 
 
 concurrencyLevel크기의 Segment 클래스 배열에 Segment객체를 생성하여 넣는다.
 JDK1.6
-```java
+{% highlight java %}
 if (initialCapacity > MAXIMUM_CAPACITY)
     initialCapacity = MAXIMUM_CAPACITY;
 int c = initialCapacity / ssize;
@@ -282,10 +282,10 @@ while (cap < c)
 
 for (int i = 0; i < this.segments.length; ++i)
     this.segments[i] = new Segment<K,V>(cap, loadFactor);
-```
+{% endhighlight %}
 
 JDK1.7
-```java
+{% highlight java %}
 if (initialCapacity > MAXIMUM_CAPACITY)
     initialCapacity = MAXIMUM_CAPACITY;
 int c = initialCapacity / ssize;
@@ -301,13 +301,13 @@ Segment<K,V> s0 =
 Segment<K,V>[] ss = (Segment<K,V>[])new Segment[ssize];
 UNSAFE.putOrderedObject(ss, SBASE, s0); // ordered write of segments[0]
 this.segments = ss;
-```
+{% endhighlight %}
 
 
 Segment 클래스의 생성자를 살펴보자
 
 JDK1.6
-```java
+{% highlight java %}
 void setTable(HashEntry<K,V>[] newTable) {
     threshold = (int)(newTable.length * loadFactor);
     table = newTable;
@@ -317,28 +317,28 @@ Segment(int initialCapacity, float lf) {
     loadFactor = lf;
     setTable(HashEntry.<K,V>newArray(initialCapacity));
 }
-```
+{% endhighlight %}
 
 JDK1.7
-```java
+{% highlight java %}
 Segment(float lf, int threshold, HashEntry<K,V>[] tab) {
     this.loadFactor = lf;
     this.threshold = threshold;
     this.table = tab;
 }
-```
+{% endhighlight %}
 
 Segment 클래스의 생성자는 JDK1.6과 JDK1.7이 표현 방식만 다를 뿐 내용은 같다.
 loadFactor는 default값으로 0.75가 세팅되어 있다.
-```java
+{% highlight java %}
 static final float DEFAULT_LOAD_FACTOR = 0.75f;
-```
+{% endhighlight %}
 threshold는 테이블의 크기가 threshold를 넘을 경우 rehash 하는 기준값이다. capacity의 75%수준이 되면 rehash된다.
 
 실제로 ConcurrentHashMap에 값을 넣는 put 함수를 살펴보면 threshold값을 넘을 때 rehash 함수를 호출하는 것을 볼 수 있다.
 
 JDK1.6
-```java
+{% highlight java %}
         V put(K key, int hash, V value, boolean onlyIfAbsent) {
             lock();
             try {
@@ -369,10 +369,10 @@ JDK1.6
                 unlock();
             }
         }
-```
+{% endhighlight %}
 
 JDK1.7
-```java
+{% highlight java %}
 final V put(K key, int hash, V value, boolean onlyIfAbsent) {
     HashEntry<K,V> node = tryLock() ? null :
         scanAndLockForPut(key, hash, value);
@@ -420,35 +420,35 @@ final V put(K key, int hash, V value, boolean onlyIfAbsent) {
     }
     return oldValue;
 }
-```
+{% endhighlight %}
 
 
 이제 생성자를 살펴보겠다.
 
 JDK1.6
-```java
+{% highlight java %}
 public ConcurrentHashMap(int initialCapacity, 
                             float loadFactor, int concurrencyLevel)
-```
+{% endhighlight %}
 initialCapacity는 지정하지 않으면 `DEFAULT_INITIAL_CAPACITY = 16`이 세팅된다. 
 loadFactor도 `DEFAULT_LOAD_FACTOR = 0.75f` 기본 세팅된다.
 concurrencyLevel도 역시 `DEFAULT_CONCURRENCY_LEVEL = 16`이다.
 
 
-```java
+{% highlight java %}
         if (!(loadFactor > 0) || initialCapacity < 0 || concurrencyLevel <= 0)
             throw new IllegalArgumentException();
-```
+{% endhighlight %}
 생성자가 호출되면, 가장먼저 하는 일이, 입력 파라미터의 유효성 검사이다. 0보다 작으면 모두 예외를 발생 시킨다.
 
 
-```java
+{% highlight java %}
         if (concurrencyLevel > MAX_SEGMENTS)
             concurrencyLevel = MAX_SEGMENTS;
-```
+{% endhighlight %}
 concurrencyLevel가 너무 큰 값이 입력되면, `MAX_SEGMENTS = 1 << 16` 값으로 변경해준다.
 
-```java
+{% highlight java %}
         // Find power-of-two sizes best matching arguments
         int sshift = 0;
         int ssize = 1;
@@ -459,18 +459,18 @@ concurrencyLevel가 너무 큰 값이 입력되면, `MAX_SEGMENTS = 1 << 16` 값
         segmentShift = 32 - sshift;
         segmentMask = ssize - 1;
         this.segments = Segment.newArray(ssize);
-```
+{% endhighlight %}
 concurrencyLevel보다 같거나 큰, 가장 작은 2의 거듭제곱만큼의 크기로 Segment 배열을 만든다. Segment 배열의 각 원소마다 Table(HashEnty의 배열)이 들어간다.
 HashTable을 Segment로 구간별로 나누어서, 서로 다른 Segment끼리는 thread-safe한 점을 이용한다.
 
 
-```java
+{% highlight java %}
         if (initialCapacity > MAXIMUM_CAPACITY)
             initialCapacity = MAXIMUM_CAPACITY;
-```
+{% endhighlight %}
 initialCapacity도 최대값을 넘으면 최대값 `MAXIMUM_CAPACITY = 1 << 30` 으로 세팅한다.
 
-```java
+{% highlight java %}
         int c = initialCapacity / ssize;
         if (c * ssize < initialCapacity)
             ++c;
@@ -480,7 +480,7 @@ initialCapacity도 최대값을 넘으면 최대값 `MAXIMUM_CAPACITY = 1 << 30`
 
         for (int i = 0; i < this.segments.length; ++i)
             this.segments[i] = new Segment<K,V>(cap, loadFactor);
-```
+{% endhighlight %}
 약 initialCapacity만큼의 Segment배열을 만든다.
 
 
