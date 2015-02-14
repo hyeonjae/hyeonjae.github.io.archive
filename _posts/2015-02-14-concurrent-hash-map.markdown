@@ -339,36 +339,36 @@ threshold는 테이블의 크기가 threshold를 넘을 경우 rehash 하는 기
 
 JDK1.6
 {% highlight java %}
-        V put(K key, int hash, V value, boolean onlyIfAbsent) {
-            lock();
-            try {
-                int c = count;
-                if (c++ > threshold)        // count값이 threshold를 넘으면
-                    rehash();               // rehash 한다.
-                HashEntry<K,V>[] tab = table;
-                int index = hash & (tab.length - 1);
-                HashEntry<K,V> first = tab[index];
-                HashEntry<K,V> e = first;
-                while (e != null && (e.hash != hash || !key.equals(e.key)))
-                    e = e.next;
+V put(K key, int hash, V value, boolean onlyIfAbsent) {
+    lock();
+    try {
+        int c = count;
+        if (c++ > threshold)        // count값이 threshold를 넘으면
+            rehash();               // rehash 한다.
+        HashEntry<K,V>[] tab = table;
+        int index = hash & (tab.length - 1);
+        HashEntry<K,V> first = tab[index];
+        HashEntry<K,V> e = first;
+        while (e != null && (e.hash != hash || !key.equals(e.key)))
+            e = e.next;
 
-                V oldValue;
-                if (e != null) {
-                    oldValue = e.value;
-                    if (!onlyIfAbsent)
-                        e.value = value;
-                }
-                else {
-                    oldValue = null;
-                    ++modCount;
-                    tab[index] = new HashEntry<K,V>(key, hash, first, value);
-                    count = c;
-                }
-                return oldValue;
-            } finally {
-                unlock();
-            }
+        V oldValue;
+        if (e != null) {
+            oldValue = e.value;
+            if (!onlyIfAbsent)
+                e.value = value;
         }
+        else {
+            oldValue = null;
+            ++modCount;
+            tab[index] = new HashEntry<K,V>(key, hash, first, value);
+            count = c;
+        }
+        return oldValue;
+    } finally {
+        unlock();
+    }
+}
 {% endhighlight %}
 
 JDK1.7
@@ -428,7 +428,7 @@ final V put(K key, int hash, V value, boolean onlyIfAbsent) {
 JDK1.6
 {% highlight java %}
 public ConcurrentHashMap(int initialCapacity, 
-                            float loadFactor, int concurrencyLevel)
+                        float loadFactor, int concurrencyLevel)
 {% endhighlight %}
 initialCapacity는 지정하지 않으면 `DEFAULT_INITIAL_CAPACITY = 16`이 세팅된다. 
 loadFactor도 `DEFAULT_LOAD_FACTOR = 0.75f` 기본 세팅된다.
@@ -436,50 +436,50 @@ concurrencyLevel도 역시 `DEFAULT_CONCURRENCY_LEVEL = 16`이다.
 
 
 {% highlight java %}
-        if (!(loadFactor > 0) || initialCapacity < 0 || concurrencyLevel <= 0)
-            throw new IllegalArgumentException();
+    if (!(loadFactor > 0) || initialCapacity < 0 || concurrencyLevel <= 0)
+        throw new IllegalArgumentException();
 {% endhighlight %}
 생성자가 호출되면, 가장먼저 하는 일이, 입력 파라미터의 유효성 검사이다. 0보다 작으면 모두 예외를 발생 시킨다.
 
 
 {% highlight java %}
-        if (concurrencyLevel > MAX_SEGMENTS)
-            concurrencyLevel = MAX_SEGMENTS;
+    if (concurrencyLevel > MAX_SEGMENTS)
+        concurrencyLevel = MAX_SEGMENTS;
 {% endhighlight %}
 concurrencyLevel가 너무 큰 값이 입력되면, `MAX_SEGMENTS = 1 << 16` 값으로 변경해준다.
 
 {% highlight java %}
-        // Find power-of-two sizes best matching arguments
-        int sshift = 0;
-        int ssize = 1;
-        while (ssize < concurrencyLevel) {
-            ++sshift;
-            ssize <<= 1;
-        }
-        segmentShift = 32 - sshift;
-        segmentMask = ssize - 1;
-        this.segments = Segment.newArray(ssize);
+    // Find power-of-two sizes best matching arguments
+    int sshift = 0;
+    int ssize = 1;
+    while (ssize < concurrencyLevel) {
+        ++sshift;
+        ssize <<= 1;
+    }
+    segmentShift = 32 - sshift;
+    segmentMask = ssize - 1;
+    this.segments = Segment.newArray(ssize);
 {% endhighlight %}
 concurrencyLevel보다 같거나 큰, 가장 작은 2의 거듭제곱만큼의 크기로 Segment 배열을 만든다. Segment 배열의 각 원소마다 Table(HashEnty의 배열)이 들어간다.
 HashTable을 Segment로 구간별로 나누어서, 서로 다른 Segment끼리는 thread-safe한 점을 이용한다.
 
 
 {% highlight java %}
-        if (initialCapacity > MAXIMUM_CAPACITY)
-            initialCapacity = MAXIMUM_CAPACITY;
+    if (initialCapacity > MAXIMUM_CAPACITY)
+        initialCapacity = MAXIMUM_CAPACITY;
 {% endhighlight %}
 initialCapacity도 최대값을 넘으면 최대값 `MAXIMUM_CAPACITY = 1 << 30` 으로 세팅한다.
 
 {% highlight java %}
-        int c = initialCapacity / ssize;
-        if (c * ssize < initialCapacity)
-            ++c;
-        int cap = 1;
-        while (cap < c)
-            cap <<= 1;
+    int c = initialCapacity / ssize;
+    if (c * ssize < initialCapacity)
+        ++c;
+    int cap = 1;
+    while (cap < c)
+        cap <<= 1;
 
-        for (int i = 0; i < this.segments.length; ++i)
-            this.segments[i] = new Segment<K,V>(cap, loadFactor);
+    for (int i = 0; i < this.segments.length; ++i)
+        this.segments[i] = new Segment<K,V>(cap, loadFactor);
 {% endhighlight %}
 약 initialCapacity만큼의 Segment배열을 만든다.
 
