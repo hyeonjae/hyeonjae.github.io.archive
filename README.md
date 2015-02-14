@@ -1,130 +1,77 @@
-This theme stared out being a fork from the [Block-log](https://github.com/anandubajith/block-log). It still keeps many similarities. Minimal-block is a minimalistic, responsive and friendly Jekyllrb theme. It has almost no javascript (except for disquss), static social share buttons, rss, paginator, clean and simple permalinks and RSS.
+Contrast
+========
+
+[Demo](http://niklasbuschmann.github.io/contrast)
+
+![screenshot](https://cloud.githubusercontent.com/assets/4943215/5601369/f7d36d6c-92fa-11e4-85e3-752c270a91d3.png)
 
 
-[Live Demo](http://drvy.github.io/minimal-block/)
+## Features
 
-[Download](https://github.com/drvy/minimal-block/archive/master.zip)
+ - mobile first
+ - syntax highlighting
+ - [disqus](https://disqus.com/) / [isso](http://posativ.org/isso/) integration
+ - customizable
+ - valid HTML5
 
-[Github Repository](https://github.com/drvy/minimal-block)
+Please note: Create a *master*-branch if you want to use this theme with *.github.io.
 
+## Getting Started
 
-![minimal-block preview](https://raw.githubusercontent.com/drvy/minimal-block/master/preview.png)
+If you're completely new to Jekyll, I recommend checking out the documentation at <http://jekyllrb.com> or there's a tutorial by [Smashing Magazine](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/).
 
-Setting up
-----------------
-To start you own blog, simply git clone the repository on github.
+### Installing Jekyll
 
-    git clone https://github.com/drvy/minimal-block.git
+If you don't have Jekyll already installed, you will need to go ahead and do that.
 
-Once cloned, edit the `_config.yml` file at the root of the repository.
+```
+$ gem install jekyll
+```
 
-To add your own posts, add a file to the _posts directory. The file name has to follow the following structure.
+#### Verify your Jekyll version
 
-    year-month-day-title.md
-    2015-01-25-Hello-world.md
+It's important to also check your version of Jekyll since this project uses Native Sass which
+is [only supported by 2.0+](http://jekyllrb.com/news/2014/05/06/jekyll-turns-2-0-0/).
 
-The post doesn't have to be writen in markdown but it's recomended. Notice that the URL of the post will contain the “Hello-world” part so the title of the file must be URL friendly.
+```
+$ jekyll -v
+# This should be jekyll 2.0.0 or later
+```
 
+### Fork, then clone
 
-Things to change in `_config.yml`
-----------------
-This file contains the configuration of your blog. By default, it looks like this:
+Fork the repo, and then clone it so you've got the code locally.
 
-    # General
-    name: Minimal-Block
-    description: "Minimalistic, friendly, responsive."
-    url: http://localhost:4000
+### Modify the _config.yml
 
-    markdown: redcarpet
-    highlighter: pygments
+The `_config.yml` located in the root of the Pixyll directory contains all of the configuration details
+for the Jekyll site.
 
-    paginate: 5
-    permalink: /:title
+### Jekyll Serve
 
-    # Social share and comments.
-    disqus-id: yourusername
-    twitter: yourusername
-    github: yourusername
-    google: +yourusername
+Then, start the Jekyll Server. I always like to give the `--watch` option so it updates the generated HTML when I make changes.
 
-    # RSS feed
-    rss-feed-limit: 10
-    rss-show-full: "yes"
+```
+$ jekyll serve --watch
+```
 
-You will need to change `name` , `url` , `twitter`, `disqus-id`, `google` and `github`. All others are optional. Here is what the variables mean.
+Now you can navigate to `localhost:4000` in your browser to see the site.
 
-<table>
-<thead>
-    <tr><th>Name</th><th>Description</th></tr>
-</thead>
-<tbody>
-    <tr><td>name</td><td>The name of your jekyll site. The title.</td></tr>
-    <tr><td>description</td><td>Basic description. Sub-title.</td></tr>
-    <tr><td>url</td><td>Where will be the jekyll site. The main URL without the endind / (slash).</td></tr>
-    <tr><td>markdown</td><td>The preffered markdown parser to use.</td></tr>
-    <tr><td>highlighter</td><td>The syntax-highlighter to use. If not set, `highlights.css` will not be included.</td></tr>
-    <tr><td>paginate</td><td>How much posts to show per page.</td></tr>
-    <tr><td>permalink</td><td>The friendly urls of the post. `none` is the jekyll default.</td></tr>
-    <tr><td>disqus-id</td><td>The disqus ID. If not set, comments will not be shown.</td></tr>
-    <tr><td>twitter</td><td>Your twitter username (used while sharing).</td></tr>
-    <tr><td>github</td><td>Your github username.</td></tr>
-    <tr><td>google</td><td>Youre google+ username.</td></tr>
-    <tr><td>rss-feed-limit</td><td>How much entries to display in the feed.xml (rss).</td></tr>
-    <tr><td>rss-show-full</td><td>The show the full post or to put only the excerpt (yes | no).</td>
-</tbody>
-</table>
+### Using Github Pages
 
-For more information on Jekyll, visit their [wiki on github](https://github.com/mojombo/jekyll/wiki). For more information on GitHub Pages visit [their site](http://pages.github.com).
+You can host your Jekyll site for free with Github Pages. [Click here](https://pages.github.com/) for more information.
 
+## License
 
-Writing posts.
-----------------
-Checkout the Jekyllrb [wiki](https://github.com/mojombo/jekyll/wiki) for documentation on writing posts. This theme
-makes use of static sharing buttons and they use a few tags that you should include in your posts.
-An example of a post header:
+Released under *public domain*.
 
-    ---
-    layout: post
-    title:  "minimal-block - A minimalistic responsive Jekyll theme"
-    date:   2015-01-25 00:00:00
-    categories: jekyll, themes
-    tags: jekyll, theme, minimal
-    shortUrl: http://goo.gl/JhfZT9
-    ---
+## Thanks to the following:
 
-Most of these variables are just the default ones but the last two (`tags` and `shortUrl`) are used by the theme when sharing via the social buttons in the end of every post.
-
-Specifically, `tags` will be converted into hashtags when sharing on Twitter and if you supply a `shortUrl`, it will be used instead of the full url. This is useful if you are using [goo.gl](http://goo.gl) since they provide statistics for each short link and that way you can see how many people are sharing your post.
-
-
-Pages and other files.
-----------------
-Each page has its own directory in the root folder of the theme. In each directory there is an index.html representing the contents of the page. Take a look at the default ones (about and contact) to see the structure.
-
-Another file to know about is the `footer.html` as it has the copyright notice and credits. This file is located in the `_includes` folder. You can remove the credits if you want but I would love you if you give me some credit in the HTML source.
-
-The `404` file is located in the root folder and it contains the exactly same structure as a page.
-
-License
-----------------
-The MIT License (MIT)
-
-    Copyright (c) 2015 Dragomir V Yordanov
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
+* [Jekyll](http://jekyllrb.com)
+* [Github Pages](https://pages.github.com/)
+* [Richard Leland: pygment](https://github.com/richleland/pygments-css)
+* [mrdoob: three.js](https://github.com/mrdoob/three.js/)
+* [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+* [Paul D. Hunt: Source Sans Pro](https://plus.google.com/108888178732927400671/about)
+* [Victor Gaultney: Gentium Basic](https://profiles.google.com/victorgaultneytype/about)
+* [John Otander: Pixyll](https://github.com/johnotander/pixyll/)

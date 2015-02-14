@@ -1,21 +1,34 @@
-# General
-name: Hyeonjae Blog
-description: "Hyeonjae's blog"
-url: http://hyeonjae.github.io
+title: "blog title"
+author: "Blog Author"
+description: "Really cool blog about ... something"
+#subheading: "Really cool blog about ... something"
+more: "read more"
+url: "http://niklabs.cf"
+baseurl: "/contrast" # comment out if in root directory
 
-markdown: redcarpet
-highlighter: pygments
-pygments_options: ['lineanchors', 'lineos=table']
+comments:
+    disqus: "niklasbuschmann"
+#    isso: "comments.mysite.org"
 
-paginate: 5
-permalink: /:title
+style:
+#    body: "whitesmoke"
+    padding: 33%
+    anchor: "#46f"
+    serif-heading: true
+    nav: "#181818"
+#    headline: "#06f"
+    description: "white"
+    article:
+        odd: "#ffffff"
+        even: "#222222"
 
-# Social share and comments.
-disqus-id: hyeonjae
-twitter: 
-github: hyeonjae
-google: 
+links:
+  - github: "https://github.com/me/"
+  - twitter: "https://twitter.com/me/"
+  - google-plus: "https://plus.google.com/+me"
+  - reddit: "https://www.reddit.com/user/me/"
+  - youtube: "https://www.youtube.com/user/me"
+  - steam: "http://steamcommunity.com/id/me/"
 
-# RSS feed
-rss-feed-limit: 10
-rss-show-full: "no"
+excerpt_separator: "\n\n\n"
+defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
