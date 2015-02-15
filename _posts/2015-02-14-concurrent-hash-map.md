@@ -206,7 +206,7 @@ static final <K,V> Segment<K,V> segmentAt(Segment<K,V>[] ss, int j) {
 #### MAX_SEGMENTS
 
 segment의 최대 허용 개수이다. 
-기본으로 1<<16 (2^15)로 세팅되어 있다. 
+기본으로 1<<16 (2^16)로 세팅되어 있다. 
 {% highlight java %}
 static final int MAX_SEGMENTS = 1 << 16;
 {% endhighlight %}
