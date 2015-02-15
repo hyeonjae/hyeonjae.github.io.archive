@@ -25,6 +25,7 @@ HashTable는 내부적으로 모든 쓰기 작업에 lock을 걸어 동기화를
 ### 구현
 
 ConcurrentHashMap 구현의 주요 목표는 다음과 같다.
+
 1. 값의 변경을 최소화 하면서 동시 읽기 작업(get, iterator) 구현
 2. HashMap의 메모리 사용 수준을 유지, 또는 개선
 
