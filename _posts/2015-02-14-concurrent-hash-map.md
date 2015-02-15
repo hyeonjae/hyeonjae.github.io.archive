@@ -25,8 +25,8 @@ HashTable는 내부적으로 모든 쓰기 작업에 lock을 걸어 동기화를
 ### 구현
 
 ConcurrentHashMap 구현의 주요 목표는 다음과 같다.
-1. 값의 변경을 최소화 하면서 동시 읽기 작업(get, iterator) 구현
-2. HashMap의 메모리 사용 수준을 유지, 또는 개선
+    1. 값의 변경을 최소화 하면서 동시 읽기 작업(get, iterator) 구현
+    2. HashMap의 메모리 사용 수준을 유지, 또는 개선
 
 
 ConcurrentHashMap은 ConcurrentMap 인터페이스와 AbstractMap 추상 클래스를 상속받았다. 
@@ -268,6 +268,7 @@ this.segments = ss;
 
 
 concurrencyLevel크기의 Segment 클래스 배열에 Segment객체를 생성하여 넣는다.
+
 JDK1.6
 {% highlight java %}
 if (initialCapacity > MAXIMUM_CAPACITY)
@@ -350,7 +351,6 @@ V put(K key, int hash, V value, boolean onlyIfAbsent) {
         HashEntry<K,V> e = first;
         while (e != null && (e.hash != hash || !key.equals(e.key)))
             e = e.next;
-
         V oldValue;
         if (e != null) {
             oldValue = e.value;
@@ -400,7 +400,6 @@ final V put(K key, int hash, V value, boolean onlyIfAbsent) {
                 else
                     node = new HashEntry<K,V>(hash, key, value, first);
                 int c = count + 1;
-
                 // count값이 threshold를 넘고, table의 크기가 
                 // MAXIMUM_CAPACITY를 넘지 않으면,
                 // rehash 한다.
@@ -438,7 +437,7 @@ concurrencyLevel도 역시 `DEFAULT_CONCURRENCY_LEVEL = 16`이다.
     if (!(loadFactor > 0) || initialCapacity < 0 || concurrencyLevel <= 0)
         throw new IllegalArgumentException();
 {% endhighlight %}
-생성자가 호출되면, 가장먼저 하는 일이, 입력 파라미터의 유효성 검사이다. 0보다 작으면 모두 예외를 발생 시킨다.
+생성자가 호출되면 가장 먼저 하는 일은 입력 파라미터의 유효성 검사이다. 0보다 작으면 모두 예외를 발생 시킨다.
 
 
 {% highlight java %}
@@ -481,6 +480,8 @@ initialCapacity도 최대값을 넘으면 최대값 `MAXIMUM_CAPACITY = 1 << 30`
         this.segments[i] = new Segment<K,V>(cap, loadFactor);
 {% endhighlight %}
 약 initialCapacity만큼의 Segment배열을 만든다.
+
+
 
 
 To be continue ...
