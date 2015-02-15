@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Markdown 편집기 Sublime Text3"
 date:   2015-02-14 16:19:00
 categories: tool

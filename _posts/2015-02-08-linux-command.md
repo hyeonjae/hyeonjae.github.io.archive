@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Linux commands"
 date:   2015-02-08 19:08:00
 categories: linux

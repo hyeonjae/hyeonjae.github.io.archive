@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "NHN Entertainment 신입 교육 후기"
 date:   2015-02-08 20:17:00
 categories: daily

@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Java의 ConcurrentHashMap"
 date:   2015-02-14 21:36:00
 categories: java

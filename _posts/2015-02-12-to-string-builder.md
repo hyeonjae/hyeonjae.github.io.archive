@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "ToStringBuilder"
 date:   2015-02-12 18:09:00
 categories: java
