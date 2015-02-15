@@ -4,10 +4,10 @@ description: "A Blog by jekyll"
 #subheading: "Really cool blog about ... something"
 more: "read more"
 url: "http://hyeonjae.github.io"
-baseurl: "http://hyeonjae.github.io" # comment out if in root directory
+#baseurl: "/" # comment out if in root directory
 
 comments:
-    disqus: "hyeonjae"
+#    disqus: "hyeonjae"
 #    isso: "comments.mysite.org"
 
 style:
