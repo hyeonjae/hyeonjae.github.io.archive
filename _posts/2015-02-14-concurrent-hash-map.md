@@ -25,8 +25,8 @@ HashTable는 내부적으로 모든 쓰기 작업에 lock을 걸어 동기화를
 ### 구현
 
 ConcurrentHashMap 구현의 주요 목표는 다음과 같다.
-    1. 값의 변경을 최소화 하면서 동시 읽기 작업(get, iterator) 구현
-    2. HashMap의 메모리 사용 수준을 유지, 또는 개선
+1. 값의 변경을 최소화 하면서 동시 읽기 작업(get, iterator) 구현
+2. HashMap의 메모리 사용 수준을 유지, 또는 개선
 
 
 ConcurrentHashMap은 ConcurrentMap 인터페이스와 AbstractMap 추상 클래스를 상속받았다. 
@@ -421,6 +421,8 @@ final V put(K key, int hash, V value, boolean onlyIfAbsent) {
 {% endhighlight %}
 
 
+### Constructor
+
 이제 생성자를 살펴보겠다.
 
 JDK1.6
@@ -482,6 +484,8 @@ initialCapacity도 최대값을 넘으면 최대값 `MAXIMUM_CAPACITY = 1 << 30`
 약 initialCapacity만큼의 Segment배열을 만든다.
 
 
+
+### Put
 
 
 To be continue ...
