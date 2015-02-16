@@ -484,6 +484,8 @@ initialCapacity도 최대값을 넘으면 최대값 `MAXIMUM_CAPACITY = 1 << 30`
 {% endhighlight %}
 약 initialCapacity만큼의 Segment배열을 만든다.
 
+지금까지의 생성된 객체는 다음과 같다.
+![1]({{ site.url }}/assets/concurrent_hash_map.png)
 
 
 ### Put
