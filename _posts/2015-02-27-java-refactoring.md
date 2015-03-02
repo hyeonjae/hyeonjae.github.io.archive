@@ -4,8 +4,6 @@ date:   2015-02-27 11:00:00
 categories: refactoring
 ---
 
-# 1장 깨끗한 코드
-
 `MemoDto`에 첨부된 파일의 경로명과 파일명이 유효한지 검사하고, ObjectStorage에서 해당 `memo`의 첨부파일을 다운로드 받는 코드다.
 {% highlight java %}
 if( isValidFileName(memo.getFilePath(), memo.getFileName()) ) {
