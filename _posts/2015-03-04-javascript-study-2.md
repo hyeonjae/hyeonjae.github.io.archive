@@ -18,7 +18,7 @@ function doSomething(){
 ---
 
 ## 스코프
-
+  
  - ECMAScript에서는 실행 컨텍스트(Excution Context, EC)라고 부른다.
  - 오로지 function scope만 존재
  - file scope는 존재 하지 않기 때분에 여러 js 파일간 변수명 충돌 가능하다.
@@ -38,7 +38,7 @@ js 파일 전체를 `function() { }` function scope로 감싸고, js파일을 �
 
 
 ## 타입
-
+  
 자바스크립트에는 5가지 primitive 타입과 객체 타입이 있다.
 
  - undefined
@@ -56,7 +56,7 @@ js 파일 전체를 `function() { }` function scope로 감싸고, js파일을 �
 
 
 ## boolean
-
+  
 자바스크립트의 boolean 타입은 다른 언어에서 정의한 것과 다르다.
 
 | 테이터 타입 | true로 변환되는 값 | false로 변환되는 값 |
@@ -112,7 +112,7 @@ C의 `sscanf()`, Java의 `parseInt()`에 해당하는 것이 자바스크립트�
 
 
 ## string
-  
+    
 PHP와는 달리, 큰따옴표와 작은따옴표가 완전히 같은 것으로 인식한다.
 
 문자열로 변환하는 방법은 세 가지가 있다. 
@@ -138,7 +138,7 @@ num이 `null`이나 `undefined`일 수도 있다. 이런 경우를 대비하여 
 ---
 
 ## object
-
+  
 아래와 같이 객체를 생성할 수 있다.
 {% highlight javascript %}
 var o = new Obejct();
@@ -161,12 +161,12 @@ var o = new Obejct;   // 비추천
 ---
 
 ## 증감 연산자
-
+  
 정수인 경우는 문제 없지만, 문자열이나 부동소수점인 경우, 해당 객체의 `valueOf()` 메서드로 값을 얻고 그 값에 증감 연산자를 적용한다.
 
 
 ## 비트 연산자
-
+  
 ECMAScript에서 모든 숫자는 IEEE-754의 64비트 형식으로 되어 있지만, 비트 연산자는 32비트 숫자로 변환 한 뒤 연산하고, 다시 64비트로 변환한다.
   
 ## 시프트 연산
@@ -179,7 +179,7 @@ ECMAScript에서 모든 숫자는 IEEE-754의 64비트 형식으로 되어 있�
 ---
 
 ## Quiz
-
+  
 다음 코드의 실행 결과는 ?
 
 {% highlight javascript %}
