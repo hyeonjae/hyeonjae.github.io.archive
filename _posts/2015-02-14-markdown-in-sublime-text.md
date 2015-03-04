@@ -8,7 +8,7 @@ categories: tool
 
 
 #### Package Installer 설치
-`ctrl` + `\`` 를 누르고 아래 url을 입력하자
+`ctrl` + ``` 를 누르고 아래 url을 입력하자
 
 Sublime Text2의 경우
 {% highlight python %}
