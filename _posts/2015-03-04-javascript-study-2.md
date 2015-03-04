@@ -1,6 +1,6 @@
 ---
 title:  "javascript 스터디 #2"
-date:   2015-03-04 12:00:00
+date:   2015-03-04 14:00:00
 categories: javascript
 ---
 
@@ -37,14 +37,14 @@ js 파일 전체를 `function() { }` function scope로 감싸고, js파일을 �
 
 
 ## 타입
-자바스크립트에는 5가지 타입이 있다.
+자바스크립트에는 5가지 primitive 타입과 객체 타입이 있다.
 
  - undefined
  - boolean
  - string
  - number
- - object
  - function
+ - object
 
 그리고 주의해야할 값으로 `null`과 `undefined`가 있다.
 
