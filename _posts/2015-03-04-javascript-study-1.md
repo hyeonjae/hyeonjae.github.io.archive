@@ -121,6 +121,7 @@ function compare(a, b){
         alert("A is less than B");
     }
 }
+</script>
 {% endhighlight %}
 
 `<`를 태그로 인식하는 문제를 해결하는 방법은 여러가지가 있다. 
@@ -133,6 +134,7 @@ function compare(a, b){
         alert("A is less than B");
     }
 }
+</script>
 {% endhighlight %}
 
 다른 방법으로는 CDATA 섹션으로 감싸는 방법이다. 
@@ -145,6 +147,7 @@ function compare(a, b){
     }
 }
 ]]>
+</script>
 {% endhighlight %}
 
 일부 CDATA 섹션을 지원하지 않는 브라우저를 위해 주석으로 처리한다.
@@ -158,4 +161,5 @@ function compare(a, b){
     }
 }
 //]]>
+</script>
 {% endhighlight %}
