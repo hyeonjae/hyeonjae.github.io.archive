@@ -1,5 +1,5 @@
 ---
-title:  javascript 스터디 #1"
+title:  "javascript 스터디 #1"
 date:   2015-03-04 11:00:00
 categories: javascript
 ---
