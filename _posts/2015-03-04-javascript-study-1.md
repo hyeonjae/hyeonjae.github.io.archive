@@ -14,7 +14,7 @@ categories: javascript
  - type: 원래는 안 쓰는게 맞는데, 브라우저 호환을 위해 습관적으로 씀.
 
 인라인 스크립트 방식
-{% highlight javascript %}
+{% highlight html %}
 <script type="text/javascript">
 function hello(){
   alert("hello");
@@ -23,13 +23,13 @@ function hello(){
 {% endhighlight %}
 
 외부 파일
-{% highlight javascript %}
+{% highlight html %}
 <script type="text/javascript" src="common.js"></script>
 {% endhighlight %}
 
 
 아래와 같이 문자열에 `</script>`가 있으면 안됨.
-{% highlight javascript %}
+{% highlight html %}
 <script type="text/javascript">
 function hello(){
   alert("</script>");
@@ -39,7 +39,7 @@ function hello(){
 
 문자열에 `</script>`를 사용하려면 `/`에 `\`를 사용하자
 
-{% highlight javascript %}
+{% highlight html %}
 <script type="text/javascript">
 function hello(){
   alert("<\/script>");
