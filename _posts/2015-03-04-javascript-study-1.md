@@ -4,7 +4,7 @@ date:   2015-03-04 11:00:00
 categories: javascript
 ---
 
-## <script>
+## `<script>`
 
  - async: 비동기로 스크립트를 다운받음. 잘 안쓴다.
  - defer: 잘 안쓴다.
