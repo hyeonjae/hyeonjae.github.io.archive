@@ -158,15 +158,7 @@ var o = new Obejct;   // 비추천
 
 ## 증감 연산자
 정수인 경우는 문제 없지만, 문자열이나 부동소수점인 경우, 해당 객체의 `valueOf()` 메서드로 값을 얻고 그 값에 증감 연산자를 적용한다.
-다음 코드의 실행 결과는 ?
-{% highlight javascript %}
-var num = 5;
-(function() {
-  alert( num );
 
-  var num = 7;
-})();
-{% endhighlight %}
 
 ## 비트 연산자
 ECMAScript에서 모든 숫자는 IEEE-754의 64비트 형식으로 되어 있지만, 비트 연산자는 32비트 숫자로 변환 한 뒤 연산하고, 다시 64비트로 변환한다.
@@ -179,7 +171,15 @@ ECMAScript에서 모든 숫자는 IEEE-754의 64비트 형식으로 되어 있�
 
 ---
 
+다음 코드의 실행 결과는 ?
+{% highlight javascript %}
+var num = 5;
+(function() {
+  alert( num );
 
+  var num = 7;
+})();
+{% endhighlight %}
 
 5가 나올 것 같지만, 결과는 `undefined`
 
