@@ -70,7 +70,7 @@ js 파일 전체를 `function() { }` function scope로 감싸고, js파일을 �
 
 ---
 
-### number
+## number
   
 IEEE-754 형식을 사용하고, 8진법이나 16진법 리터럴 표현도 가능하다.
 {% highlight javascript %}
@@ -111,7 +111,7 @@ C의 `sscanf()`, Java의 `parseInt()`에 해당하는 것이 자바스크립트�
 ---
 
 
-### string
+## string
   
 PHP와는 달리, 큰따옴표와 작은따옴표가 완전히 같은 것으로 인식한다.
 
@@ -137,7 +137,7 @@ num이 `null`이나 `undefined`일 수도 있다. 이런 경우를 대비하여 
 
 ---
 
-### object
+## object
 
 아래와 같이 객체를 생성할 수 있다.
 {% highlight javascript %}
