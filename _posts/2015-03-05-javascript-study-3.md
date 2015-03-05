@@ -377,6 +377,7 @@ alert(htmlEscape("<p class=\"greeting\">Hello world!</p>"));
 split
 
 Array -> String: join
+  
 String -> Array: split
 
 {% highlight javascript %}
