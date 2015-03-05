@@ -388,7 +388,7 @@ var result = color.split(",", 3);
 {% endhighlight %}
 
 
-### HTML 메서드 (199p), URI 인코딩 메서드
+### URI 인코딩 메서드
 
 `encodeURI()`, `decodeURI()` 는 `:`, `/`', `?`, `#` 등 URI의 일부분으로 사용하는 특수문자는 인코딩 하지 않음
   
@@ -403,5 +403,4 @@ var decodedUri = decodeURI(encodedUri);
 //"http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start"
 var encodedUri = encodeURIComponent(uri)
 var decodedUri = decodeURIComponent(encodedUri);
-alert();
 {% endhighlight %}
