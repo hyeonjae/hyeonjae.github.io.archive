@@ -77,6 +77,7 @@ var colors = ["red", "green", "blue", ];
 var colors = ["red", "green", "blue"];
 colors.length = 5;
 {% endhighlight %}
+  
 ![3]({{ site.url }}/assets/array.png)
   
 ## 배열 감지
