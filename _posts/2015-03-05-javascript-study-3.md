@@ -27,6 +27,10 @@ var person = {
   
 ![2]({{ site.url }}/assets/json-object-specification.png)
 
+
+---
+
+
 ## 객체 프로퍼티 접근
 
 역시 두가지 방식이 있다.
@@ -47,6 +51,10 @@ person["first name"];
 //person.first name; ??
 {% endhighlight %}
 프로퍼티 이름이 문법 에러를 일으키는(위의 경우 공백 문자) 문자가 있거나, 예약어인 경우 대괄호 표기법을 이용하자.
+
+
+---
+
 
 ## Array
 Array 객체를 생성하는 법
@@ -80,6 +88,10 @@ colors.length = 5;
   
 ![3]({{ site.url }}/assets/array_img.png)
   
+  
+---
+
+
 ## 배열 감지
   
 안전한 배열 타입 감지는 `instanceof`를 사용하지 말고 `isArray()`를 사용해라.
@@ -94,7 +106,7 @@ if (Array.isArray(value)) {
 }
 {% endhighlight %}
 
-
+---
 
 ## 스택
 {% highlight javascript %}
@@ -122,6 +134,8 @@ var item = queue.shift();
 
 ![4]({{ site.url }}/assets/array_usage.png)
 
+---
+
 
 ## 반복 메서드
   
@@ -134,12 +148,17 @@ var item = queue.shift();
 생략
 
 
+---
+
 ## 감소 메서드
 
  - `reduce()`
  - `reduceRight()`
+  
+생략
 
-
+  
+---
   
 ## Date
 {% highlight javascript %}
@@ -152,11 +171,236 @@ var now2 = new Date(2005, 3, 7, 17, 55, 55);
 
 GMT+0900만큼 차이가 난다.
 
+---
 
 ## RegExp
 
 정규식은 별도의 스레드에서 자세히 다루겠다.
 
 
+---
+
 ## Function
 
+1. 함수 선언 방법 및 차이
+{% highlight javascript %}
+// 방법1. 함수 선언
+function sum (num1, num2) {
+    return num1 + num2;
+}
+
+// 방법2. 함수 표현식
+var sum = function(num1, num2) {
+    return num1 + num2;
+};
+{% endhighlight %}
+
+위 두 방식의 차이는 아래에서 나타난다.
+{% highlight javascript %}
+var result = sum(1, 2);
+
+function sum (num1, num2) {
+    return num1 + num2;
+}
+{% endhighlight %}
+위의 경우, 함수 `sum`이 아래에 있더라도, 해당 컨텍스트가 사용 될 때, 선언된 함수가 호이스트(`hoist`)되어 접근할 수 있다.
+
+{% highlight javascript %}
+var result = sum(1, 2);
+
+var sum = function(num1, num2) {
+    return num1 + num2;
+};
+{% endhighlight %}
+반면 함수 표현식으로 사용한 경우, `var sum`만 호이스트(`hoist`)되고, `sum`에는 `undefined`인 상태이다. `var sum = function(num1, num2)` 부분이 실행 될 때, `var sum`이 비로소 함수가 할당된다.
+
+
+함수 이름은 함수를 가리키는 포인터일 뿐이므로, 함수를 가리키는 변수에 다른 값을 할당해도, 함수 객체 자체는 변하지 않는다.
+
+  
+매개변수와 함수 이름을 시그니처로 사용하지 않기 때문에, 오버로딩도 지원하지 않는다.
+
+
+
+2. 값 처럼 쓰는 함수 (174p)
+{% highlight javascript %}
+function createComparisonFunction(propertyName) {
+    return function(object1, obejct2) {
+        var v1 = object1[propertyName];
+        var v2 = object2[propertyName];
+        
+        if (v1 < v2 ) {
+            return -1;
+        } else if ( v1 > v2 ) {
+            return 1;
+        } else {
+            return 0;
+        }
+    };
+}
+
+var data = [{name: "Zachary", age: 28}, {name: "Nicholas", age: 29}];
+
+// 이름으로 정렬
+data.sort(createComparisonFunction("name"));
+
+// 나이로 정렬
+data.sort(createComparisonFunction("age"));
+{% endhighlight %}
+
+
+3. callee, caller
+{% highlight javascript %}
+function factorial(num) {
+    if (num <= 1 ) {
+        return 1;
+    } else {
+        return num * factorial(num-1);
+    }
+}
+{% endhighlight %}
+위와 같이 재귀 함수를 만들 경우, 함수 이름이 반드시 `factorial` 여야 재귀 호출이 보장된다.
+{% highlight javascript %}
+var oldFactorial = factorial;
+factorial = null;
+
+oldFactorial(10);
+{% endhighlight %}
+이런 경우, `factorial`이 `oldFactorial`로 바뀌었기 때문에, 함수 내부의 `factorial(num-1)`도 `factorial`이 아닌 `oldFactorial`이 호출되었으면 한다.
+
+이럴 때, 아래와 같이 `callee`를 이용하자.
+{% highlight javascript %}
+function factorial(num) {
+    if (num <= 1 ) {
+        return 1;
+    } else {
+        return num * arguments.callee(num-1);
+    }
+}
+{% endhighlight %}
+  
+`caller`는 `callee`와 비슷하다.
+{% highlight javascript %}
+function outer() {
+    inner();
+}
+function inner() {
+    var parent = inner.caller;
+}
+{% endhighlight %}
+`caller` 는 `outer()`이다.
+{% highlight javascript %}
+function outer() {
+    inner();
+}
+function inner() {
+    var parent = arguments.callee.caller;
+}
+{% endhighlight %}
+
+
+`this`는 함수가 실행중인 컨텍스트 객체의 참조값이다.
+  
+전역 스코프에서 함수를 호출했다면, `this` 객체는 `window`를 가리키고, 다른 스코프에서 함수가 호출되었다면, `this` 객체는 해당 스코프를 가리키게 된다.
+
+{% highlight javascript %}
+window.color = "red"
+var o = {color: "blue"};
+
+function sayColor() {
+    return this.color;
+}
+
+sayColor();         // "red", this는 window
+
+o.sayColor = sayColor;
+o.sayColor();       // "blue", this는 o
+{% endhighlight %}
+
+
+4. length, arguments, call, apply
+`function.length`는 function 선언시의 argument의 갯수이고, `arguments.length`는 그 함수를 호출할 때 들어온 매개변수의 갯수이다.
+  
+함수 객체에서 함수를 호출하는 방법은 두 가지가 있다.
+
+ - `call()`
+ - `apply()`
+
+두 메서드 모두 첫번째 인자로 `this`를 넘겨야 한다. `apply()`는 매개변수로 배열을 넘기면 되고, `call()`는 매개변수를 각각 넣어줘야 한다.
+{% highlight javascript %}
+function sum(num1, num2, num3){
+    return num1, num2, num3;
+}
+
+sum.apply(this, [1, 2, 3]);
+sum.call(this, 1, 2, 3);
+{% endhighlight %}
+
+5. String 자주 쓰는 메서드 search, replace, split
+  
+search
+{% highlight javascript %}
+var text = "cat, bat, sat, fat";
+
+var pos = text.search(/at/);
+{% endhighlight %}
+  
+replace
+{% highlight javascript %}
+var text = "cat, bat, sat, fat";
+
+var result = text.replace(/(.at)/g, "'$1'");
+// "'cat', 'bat', 'sat', 'fat'";
+{% endhighlight %}
+  
+replace 응용
+{% highlight javascript %}
+function htmlEscape(text){
+    return text.replace(/[<>"&]/g, function(match, pos, originalText){
+        switch(match){
+            case "<":
+                return "&lt;";
+            case ">":
+                return "&gt;";
+            case "&":
+                return "&amp;";
+            case "\"":
+                return "&quot;";
+        }             
+    });
+}
+
+alert(htmlEscape("<p class=\"greeting\">Hello world!</p>"));
+//&lt;p class=&quot;greeting&quot;&gt;Hello world!&lt;/p&gt;
+{% endhighlight %}
+  
+split
+
+Array -> String: join
+String -> Array: split
+
+{% highlight javascript %}
+var color = "red,orange,yellow,green,blue";
+
+var result = color.split(",", 3);
+// ["red", "orange", "yellow"]
+{% endhighlight %}
+
+
+6. HTML 메서드 (199p), URI 인코딩 메서드
+
+`encodeURI()`, `decodeURI()` 는 `:`, `/`', `?`, `#` 등 URI의 일부분으로 사용하는 특수문자는 인코딩 하지 않음
+  
+`encodeURIComponent()`, `decodeURIComponent()` 는 모든 특수문자를 인코딩함
+{% highlight javascript %}
+var uri = "http://www.wrox.com/illegal value.htm#start";
+
+//"http://www.wrox.com/illegal%20value.htm#start"
+var encodedUri = encodeURI(uri);
+var decodedUri = decodeURI(encodedUri);
+
+//"http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start"
+var encodedUri = encodeURIComponent(uri)
+var decodedUri = decodeURIComponent(encodedUri);
+alert();
+{% endhighlight %}
