@@ -22,7 +22,9 @@ var person = {
 `'객체 리터럴'`방식에서 중괄호 {} 뒤에 `;`가 붙은 점을 유의하자.
 
 `'꼬리 쉼표'`는 없어야 한다.
+  
 ![1]({{ site.url }}/assets/json-tailing-comma.png)
+  
 ![2]({{ site.url }}/assets/json-object-specification.png)
 
 ## 객체 프로퍼티 접근
