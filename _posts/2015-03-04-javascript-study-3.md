@@ -119,6 +119,6 @@ queue.push("green", "blue");
 var item = queue.shift();
 {% endhighlight %}
 
-![2]({{ site.url }}/assets/array_usage.png)
+![3]({{ site.url }}/assets/array_usage.png)
 
 
