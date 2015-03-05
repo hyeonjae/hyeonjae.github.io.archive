@@ -66,6 +66,9 @@ js 파일 전체를 `function() { }` function scope로 감싸고, js파일을 �
 | number | 0이 아닌 모든 숫자(무한대 포함) | 0, NaN |
 | object | 모든 객체 | null |
 | undefined | 해당 없음 | undefined |
+  
+  
+주의 해야할 점은 Boolean 객체는 null이 아니면 항상 true라는 점이다. boolean이 Boolean 객체로 변환 되는 것을 주의해야 한다.
 
 
 ---
@@ -92,11 +95,14 @@ var floatNum2 = 10.0;   // 10으로 간주
 {% endhighlight %}
 
 C의 `sscanf()`, Java의 `parseInt()`에 해당하는 것이 자바스크립트에는 세 가지가 있다.
+
  - `Number()`
  - `parseInt()`
  - `parseFloat()`
 
+
 `Number()`의 경우 조금 복잡하다.
+
  - boolean은 0, 1로 변환한다.
  - null은 0을 반환한다.
  - undefined는 NaN을 반환한다.
@@ -116,6 +122,7 @@ C의 `sscanf()`, Java의 `parseInt()`에 해당하는 것이 자바스크립트�
 PHP와는 달리, 큰따옴표와 작은따옴표가 완전히 같은 것으로 인식한다.
 
 문자열로 변환하는 방법은 세 가지가 있다. 
+
  - `num.toString()`
  - `String(num)`
  - `"" + num`
@@ -131,6 +138,7 @@ num.toString(16);   // "d"
 {% endhighlight %}
 
 num이 `null`이나 `undefined`일 수도 있다. 이런 경우를 대비하여 `String()`를 쓰자. `String()`는 다음과 같은 규칙으로 문자로 변환한다.
+
  - `toString()` 메서드가 존재하면 `.toString()`를 호출하여 그 결과를 반환
  - `null`이면 `"null"`을 반환
  - `undefined`이면 `"undefined"`을 반환
@@ -150,6 +158,7 @@ var o = new Obejct;   // 비추천
 {% endhighlight %}
   
 자바스크립트의 모든 객체는 Obejct 타입의 프로퍼티와 메서드를 상속받는다.
+
  - `constructor`
  - `hasOwnProperty()`
  - `isPrototypeOf()`

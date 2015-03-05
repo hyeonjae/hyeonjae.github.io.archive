@@ -123,3 +123,40 @@ var item = queue.shift();
 ![4]({{ site.url }}/assets/array_usage.png)
 
 
+## 반복 메서드
+  
+ - `every()`
+ - `filter()`
+ - `forEach()`
+ - `map()`
+ - `some()`
+
+생략
+
+
+## 감소 메서드
+
+ - `reduce()`
+ - `reduceRight()`
+
+
+  
+## Date
+{% highlight javascript %}
+var now1 = new Date(Date.UTC(2005, 3, 7, 17, 55, 55));
+//now1: Fri Apr 08 2005 02:55:55 GMT+0900 (대한민국 표준시)
+
+var now2 = new Date(2005, 3, 7, 17, 55, 55);
+//now2: Thu Apr 07 2005 17:55:55 GMT+0900 (대한민국 표준시)
+{% endhighlight %}
+
+GMT+0900만큼 차이가 난다.
+
+
+## RegExp
+
+정규식은 별도의 스레드에서 자세히 다루겠다.
+
+
+## Function
+
