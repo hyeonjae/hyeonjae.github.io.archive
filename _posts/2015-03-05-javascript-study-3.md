@@ -182,7 +182,7 @@ GMT+0900만큼 차이가 난다.
 
 ## Function
 
-1. 함수 선언 방법 및 차이
+### 함수 선언 방법 및 차이
 {% highlight javascript %}
 // 방법1. 함수 선언
 function sum (num1, num2) {
@@ -222,7 +222,7 @@ var sum = function(num1, num2) {
 
 
 
-2. 값 처럼 쓰는 함수 (174p)
+### 값 처럼 쓰는 함수
 {% highlight javascript %}
 function createComparisonFunction(propertyName) {
     return function(object1, obejct2) {
@@ -249,7 +249,7 @@ data.sort(createComparisonFunction("age"));
 {% endhighlight %}
 
 
-3. callee, caller
+### callee, caller
 {% highlight javascript %}
 function factorial(num) {
     if (num <= 1 ) {
@@ -318,7 +318,7 @@ o.sayColor();       // "blue", this는 o
 {% endhighlight %}
 
 
-4. length, arguments, call, apply
+#### length, arguments, call, apply
 `function.length`는 function 선언시의 argument의 갯수이고, `arguments.length`는 그 함수를 호출할 때 들어온 매개변수의 갯수이다.
   
 함수 객체에서 함수를 호출하는 방법은 두 가지가 있다.
@@ -336,7 +336,7 @@ sum.apply(this, [1, 2, 3]);
 sum.call(this, 1, 2, 3);
 {% endhighlight %}
 
-5. String 자주 쓰는 메서드 search, replace, split
+### String 자주 쓰는 메서드 search, replace, split
   
 search
 {% highlight javascript %}
@@ -387,7 +387,7 @@ var result = color.split(",", 3);
 {% endhighlight %}
 
 
-6. HTML 메서드 (199p), URI 인코딩 메서드
+### HTML 메서드 (199p), URI 인코딩 메서드
 
 `encodeURI()`, `decodeURI()` 는 `:`, `/`', `?`, `#` 등 URI의 일부분으로 사용하는 특수문자는 인코딩 하지 않음
   
