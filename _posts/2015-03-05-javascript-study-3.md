@@ -77,7 +77,7 @@ var colors = ["red", "green", "blue", ];
 var colors = ["red", "green", "blue"];
 colors.length = 5;
 {% endhighlight %}
-![2]({{ site.url }}/assets/array.png)
+![3]({{ site.url }}/assets/array.png)
   
 ## 배열 감지
   
@@ -119,6 +119,6 @@ queue.push("green", "blue");
 var item = queue.shift();
 {% endhighlight %}
 
-![3]({{ site.url }}/assets/array_usage.png)
+![4]({{ site.url }}/assets/array_usage.png)
 
 
