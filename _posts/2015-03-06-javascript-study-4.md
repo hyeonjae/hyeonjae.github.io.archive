@@ -91,6 +91,7 @@ var person2 = createPerson("Greg", 27, "Doctor");
 
 > 모든 함수는 prototype 프로퍼티를 가진다.  
   
+prototype의 프로퍼티와 메서드는 객체 인스턴스 전체에서 공유된다. 
 {% highlight javascript %}
 function Person() {
 }
@@ -108,3 +109,5 @@ person1.sayName();
 var person2 = new Person();
 person2.sayName();
 {% endhighlight %}
+위의 경우 `person1.sayName`과 `person2.sayName`는 완전히 같다. `Person.prototype.sayName`을 가리킨다.
+
