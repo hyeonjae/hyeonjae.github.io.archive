@@ -16,7 +16,7 @@ style:
     anchor: "#46f"
     serif-heading: true
     nav: "#181818"
-    headline: "#06f"
+#    headline: "#06f"
     description: "white"
     article:
         odd: "#ffffff"
