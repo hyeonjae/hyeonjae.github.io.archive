@@ -112,6 +112,47 @@ person2.sayName();
 {% endhighlight %}
 위의 경우 `person1.sayName`과 `person2.sayName`는 완전히 같다. `Person.prototype.sayName`을 가리킨다.
 
-각 인스턴스(`person1`, `person2`)는 내부에, `Person.prototype`을 가리키는 `[[Prototype]]` 포인터(브라우저마다 다르다. 파이어폭스, 사파리, 크롬은 `__proto__`라는 프로퍼리로 `[[Prototype]]`에 접근가능하다.)가 있다. 
+각 인스턴스(`person1`, `person2`)는 내부에, `Person.prototype`을 가리키는 `[[Prototype]]` 포인터(브라우저마다 다르다. 파이어폭스, 사파리, 크롬은 `__proto__`라는 프로퍼티로 `[[Prototype]]`에 접근가능하다.)가 있다. 
 
 ![1]({{ site.url }}/assets/javascript_prototype.png)
+  
+유심히 살펴볼 점은, `Person` 생성자 함수와 `person1`, `person2` 인스턴스는 직접 연결되어 있지 않다. `person1`, `person2`는 `Person.prototype`와 연결되어 있고 각 프로퍼티를 공유한다.  
+  
+  
+`__proto__`가 없는 브라우저도 `isPrototypeOf()` 메소드로 인스턴스와 `Prototype`의 연결 관계를 확인 할 수 있다.
+{% highlight javascript %}
+alert(Person.prototype.isPrototypeOf(person1));
+alert(Person.prototype.isPrototypeOf(person2));
+{% endhighlight %}
+
+`person1.sayName()`을 호출할 경우, `person1`객체에 `sayName`이름의 함수가 있는지 찾는다. 없으면 `[[Prototype]]`포인터가 가리키는 곳에서 찾는다. 있으면 해당 함수를 호출한다.  
+  
+인스턴스에서 `prototype`은 읽기만 가능하고 수정은 불가능하다. 만약 인스턴스에서, `prototype`의 프로퍼티와 같은 이름의 프로퍼티를 추가하면 `prototype`에 추가되는 것이 아니라 해당 인스턴스에 추가된다.
+
+{% highlight javascript %}
+function Person() {}
+
+Person.prototype.name = "Nicholas";
+Person.prototype.age = 29;
+Person.prototype.job = "Software Engineer";
+Person.prototype.sayName = function() {
+    alert(this.name);
+};
+
+var person1 = new Person();
+person1.job = "Doctor";     // Person.prototype.job와 같은 이름의 
+                            // job 프로퍼티를 추가하면
+                            // person1 인스턴스에 추가된다.
+{% endhighlight %}
+  
+만약 `delete`로 `person1.job` 프로퍼티를 지우면, 다시 `person1.job`로 `prototype`의 `job`프로퍼티에 접근할 수 있다.
+
+{% highlight javascript %}
+person1.job = "Doctor";
+alert(person1.job);     // "Doctor"
+
+delete person1.job;
+alert(person1.job);     // "Software Engineer", Person.prototype.job에 접근
+{% endhighlight %}
+  
+
