@@ -168,8 +168,8 @@ public void counter8(List<String> fruits){
   
   
 참고자료
- http://codereview.stackexchange.com/questions/57078/more-elegant-way-to-increment-integers-in-map
- http://www.programcreek.com/2013/10/efficient-counter-in-java/
- http://stackoverflow.com/questions/25448145/frequency-of-words-in-list-of-strings-of-strings
- http://stackoverflow.com/questions/21978653/java-8-jdk8-streams-functions-map-reduce-to-group-liststring-into-mapstring
- http://www.leveluplunch.com/java/examples/find-frequency-of-object-within-collection/
+> http://codereview.stackexchange.com/questions/57078/more-elegant-way-to-increment-integers-in-map
+> http://www.programcreek.com/2013/10/efficient-counter-in-java/
+> http://stackoverflow.com/questions/25448145/frequency-of-words-in-list-of-strings-of-strings
+> http://stackoverflow.com/questions/21978653/java-8-jdk8-streams-functions-map-reduce-to-group-liststring-into-mapstring
+> http://www.leveluplunch.com/java/examples/find-frequency-of-object-within-collection/
