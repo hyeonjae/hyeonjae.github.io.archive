@@ -155,4 +155,44 @@ delete person1.job;
 alert(person1.job);     // "Software Engineer", Person.prototype.job에 접근
 {% endhighlight %}
   
+`hasOwnProperty()`로 특정 프로퍼티가 인스턴스에 존재하는지, `prototype`에 존재하는지 검사할 수 있는 함수가 있다.
+
+{% highlight javascript %}
+function Person() {}
+
+Person.prototype.name = "Nicholas";
+Person.prototype.age = 29;
+Person.prototype.job = "Software Engineer";
+Person.prototype.sayName = function() {
+    alert(this.name);
+};
+
+var person1 = new Person();
+alert(person1.hasOwnProperty("job"));   // "job"는 "prototype"에 있으므로 false
+
+person1.job = "Doctor";
+alert(person1.hasOwnProperty("job"));   // "job"는 인스턴스에 있으므로 true
+
+delete person1.job;
+alert(person1.hasOwnProperty("job"));   // "job"는 "prototype"에 있으므로 false
+person1.job = "Doctor"; 
+{% endhighlight %}
+  
+### in 연산자
+  
+`in` 연산자는 프로퍼티가 `prototype`이든 인스턴스든 있는지 검사한다. 
+이를 응용해서 아래와 같이 인스턴스에는 없고 `prototype`에만 있는 경우를 검사할 수 있다.
+{% highlight javascript %}
+function hasPrototypeProperty(object, name){
+    return !object.hasOwnProperty(name) && (name in object);
+}
+{% endhighlight %}
+
+1. `prototype`에도 있고, 인스턴스에도 있는 경우
+ - `hasOwnProperty()`로 검사
+2. `prototype`에만 있는 경우
+ - `!object.hasOwnProperty(name) && (name in object)`로 검사
+3. 아예 없는 경우
+ - `in`연산자로 검사
+
 
