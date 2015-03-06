@@ -195,4 +195,45 @@ function hasPrototypeProperty(object, name){
 3. 아예 없는 경우
  - `in`연산자로 검사
 
+### 느슨한 연결
 
+{% highlight javascript %}
+// 객체 생성
+var person1 = new Person();
+
+// 객체 생성 이후 prototype에 sayHi 함수 추가
+Person.prototype.sayHi = function() {
+    alert("Hi");
+};
+
+// 객체에서 sayHi 함수 호출
+person1.sayHi();
+{% endhighlight %}
+  
+  
+![2]({{ site.url }}/assets/javascript_prototype_asign1.png)
+
+
+{% highlight javascript %}
+function Person() {}
+
+// 객체 생성
+var person1 = new Person();
+
+// 객체 생성 이후 prototype에 sayName 함수 추가
+Person.prototype = {
+    constructor: Person,
+    name: "Nicholas",
+    age: 29,
+    job: "Software Engineer",
+    sayName: function() {
+        alert(this.name);
+    }
+};
+
+// 객체에서 sayName 함수 호출
+person1.sayName();      // 에러
+{% endhighlight %}
+  
+  
+![3]({{ site.url }}/assets/javascript_prototype_asign2.png)
