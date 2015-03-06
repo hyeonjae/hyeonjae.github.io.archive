@@ -4,7 +4,7 @@ date:   2015-03-05 23:00:00
 categories: javascript
 ---
 
-이 글은 [다른 사이트의 글](http://javascript.info/tutorial/arguments)을 옮겨온 것이다.
+
 
 ## arguments에 대해
 
@@ -245,3 +245,6 @@ function g() {
 `arguments.caller`와 `arguments.callee.caller`는 같은 의미다. 하지만 많은 브라우저에서 `arguments.caller`를 지원하지 않는다. 따라서 caller를 쓸 일이 있다면 `arguments.callee.caller`를 사용하자.
 
 
+참고자료
+
+ > - [http://javascript.info/tutorial/arguments](http://javascript.info/tutorial/arguments)  
