@@ -46,6 +46,7 @@ public void counter1(List<String> fruits){
 	}
 }
 {% endhighlight %}
+나이브한 방법이다. HashMap에 기존에 key가 없으면 1을 넣고, 있으면 1을 더한다.
   
   
 ---
@@ -78,6 +79,7 @@ public void counter3(List<String> fruits){
 	}		
 }
 {% endhighlight %}
+`compute()`를 이용한 방법이다. key가 없는 경우를 위한 `computeIfAbsent()`가 조금 더 나은 방법이다. 방법 5에서 다루겠다.
   
   
 ---
@@ -98,6 +100,7 @@ public void counter4(List<String> fruits){
 	}			
 }
 {% endhighlight %}
+java 7에서 `AtomicInteger`를 이용한 방법이다. 기본적으로 `containsKey()`를 이용한다.
   
   
 ---
@@ -114,6 +117,7 @@ public void counter5(List<String> fruits){
 	}	
 }
 {% endhighlight %}
+`LongAdder`와 `computeIfAbsent()`를 이용하여 깔끔하게 구현하였다.
   
   
 ---
@@ -135,6 +139,7 @@ public void counter6(List<String> fruits){
 	}		
 }
 {% endhighlight %}
+`int`는 `null`을 대입할 수 없고, `Integer`는 매번 객체가 생성된다. 이 두 방법의 단점을 극복한 방법이 `int[]`를 이용한 것이다. 속도도 빠르다.
   
   
 ---
@@ -148,6 +153,7 @@ public void counter7(List<String> fruits){
 	Map<String, Long> counter = stream.collect(Collectors.groupingBy(String::toString, Collectors.counting()));
 }
 {% endhighlight %}
+java 8의 `Stream`을 이용한 우아한 방법이다.
   
   
 ---
@@ -161,6 +167,7 @@ public void counter8(List<String> fruits){
 	Map<String, Integer> counter = stream.collect(Collectors.toConcurrentMap(k->k, v->1, Integer::sum));
 }
 {% endhighlight %}
+역시 java 8의 `Stream`을 이용하였다.
 
   
   
