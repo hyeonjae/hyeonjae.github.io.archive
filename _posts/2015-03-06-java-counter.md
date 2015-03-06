@@ -18,8 +18,8 @@ private List<String> makeDictionary() {
 	int[] distribution = { 2, 3, 9, 19, 21, 17, 4, 1};
 	List<String> fruits = new ArrayList<String>(Arrays.asList(fruitList));
 	
-	for(int i=0; i<fruitList.length; i++) {
-		for(int n=0; n<distribution[i]; n++) {
+	for(int i=0; i < fruitList.length; i++) {
+		for(int n=0; n < distribution[i]; n++) {
 			fruits.add(fruitList[i]);
 		}
 	}
