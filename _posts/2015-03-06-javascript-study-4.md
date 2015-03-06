@@ -94,6 +94,7 @@ var person2 = createPerson("Greg", 27, "Doctor");
 prototype의 프로퍼티와 메서드는 객체 인스턴스 전체에서 공유된다. 
 {% highlight javascript %}
 function Person() {
+    // 생성자 함수
 }
 
 Person.prototype.name = "Nicholas";
@@ -111,3 +112,6 @@ person2.sayName();
 {% endhighlight %}
 위의 경우 `person1.sayName`과 `person2.sayName`는 완전히 같다. `Person.prototype.sayName`을 가리킨다.
 
+각 인스턴스(`person1`, `person2`)는 내부에, `Person.prototype`을 가리키는 `[[Prototype]]` 포인터(브라우저마다 다르다. 파이어폭스, 사파리, 크롬은 `__proto__`라는 프로퍼리로 `[[Prototype]]`에 접근가능하다.)가 있다. 
+
+![1]({{ site.url }}/assets/javascript_prototype.png)
