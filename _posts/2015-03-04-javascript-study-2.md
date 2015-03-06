@@ -149,15 +149,15 @@ num이 `null`이나 `undefined`일 수도 있다. 이런 경우를 대비하여 
   
 아래와 같이 객체를 생성할 수 있다.
 {% highlight javascript %}
-var o = new Obejct();
+var o = new Object();
 {% endhighlight %}
   
 매개변수가 없으면 괄호를 생략해도 되지만, 추천하지 않는다.
 {% highlight javascript %}
-var o = new Obejct;   // 비추천
+var o = new Object;   // 비추천
 {% endhighlight %}
   
-자바스크립트의 모든 객체는 Obejct 타입의 프로퍼티와 메서드를 상속받는다.
+자바스크립트의 모든 객체는 Object 타입의 프로퍼티와 메서드를 상속받는다.
 
  - `constructor`
  - `hasOwnProperty()`

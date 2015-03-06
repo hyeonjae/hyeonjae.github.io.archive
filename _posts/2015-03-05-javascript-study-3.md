@@ -225,7 +225,7 @@ var sum = function(num1, num2) {
 ### 값 처럼 쓰는 함수
 {% highlight javascript %}
 function createComparisonFunction(propertyName) {
-    return function(object1, obejct2) {
+    return function(object1, object2) {
         var v1 = object1[propertyName];
         var v2 = object2[propertyName];
         
