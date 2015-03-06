@@ -22,10 +22,12 @@ var person2 = createPerson("Greg", 27, "Doctor");
 {% endhighlight %}
   
 단점
+
  - 생성한 객체가 어떤 타입인지 알 수 없다. 오로지 Object 타입으로만 인식
  
   
 ### 생성자 패턴
+  
 {% highlight javascript %}
 function Person(name, age, job) {
     this.name = name;
@@ -41,6 +43,7 @@ var person2 = createPerson("Greg", 27, "Doctor");
 {% endhighlight %} 
   
 특징
+
  - `new` 를 사용하였다.
  - 보통 생성자 함수는 첫 글자를 대문자로 표기하는 것이 관례이다. 
   
@@ -52,7 +55,9 @@ var person2 = createPerson("Greg", 27, "Doctor");
 4. 새 객체를 반환한다.
 
 장점
+
  - 생성자 패턴으로 만든 객체는 `instanceof`로 타입 검사를 할 수 있다.
+  
 {% highlight javascript %}
 if( person1 instanceof Object ) {
     // do sometheing
@@ -66,8 +71,9 @@ if( person1 instanceof Person ) {
   
   
 단점
- - 인스턴스마다 메서드가 생긴다.
 
+ - 인스턴스마다 메서드가 생긴다.
+  
 `person1.sayName`과 `person2.sayName`는 서로 다른 함수로 인식한다.  
 함수 정의를 생성자 밖으로 내보내면 서로 같은 함수로 인식한다.
 {% highlight javascript %}
@@ -182,6 +188,7 @@ person1.job = "Doctor";
   
 `in` 연산자는 프로퍼티가 `prototype`이든 인스턴스든 있는지 검사한다. 
 이를 응용해서 아래와 같이 인스턴스에는 없고 `prototype`에만 있는 경우를 검사할 수 있다.
+  
 {% highlight javascript %}
 function hasPrototypeProperty(object, name){
     return !object.hasOwnProperty(name) && (name in object);
