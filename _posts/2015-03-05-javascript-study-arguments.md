@@ -54,8 +54,8 @@ function log(a,b,c) {
   return "second";
 }
 
-log(a); // "first"
-log(a,b,c); // "first"
+log(a); // "second"
+log(a,b,c); // "second"
 {% endhighlight %}
 하지만 자바스크립트에선 함수 이름이 같으면, 아무리 매개변수가 달라도 가장 마지막에 선언한 함수 한개만 유효하다. 자바스크립트는 함수 선언시 매개변수를 바탕으로 시그니처를 만들지 않는다.
 

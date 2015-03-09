@@ -38,8 +38,8 @@ function Person(name, age, job) {
     }
 }
 
-var person1 = createPerson("Nicholas", 29, "Software Engineer");
-var person2 = createPerson("Greg", 27, "Doctor");
+var person1 = new Person("Nicholas", 29, "Software Engineer");
+var person2 = new Person("Greg", 27, "Doctor");
 {% endhighlight %} 
   
 특징
@@ -87,8 +87,8 @@ function sayName() {
     alert(this.name);
 }
 
-var person1 = createPerson("Nicholas", 29, "Software Engineer");
-var person2 = createPerson("Greg", 27, "Doctor");
+var person1 = new Person("Nicholas", 29, "Software Engineer");
+var person2 = new Person("Greg", 27, "Doctor");
 {% endhighlight %} 
   
 이 경우 `Person`의 `sayName`는 외부의 `sayName()`함수를 가리켜 공유한다. 하지만 전역에 함수가 할당되어 좋은 코드는 아니다.
