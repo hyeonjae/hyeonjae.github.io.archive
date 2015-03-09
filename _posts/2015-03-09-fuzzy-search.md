@@ -12,6 +12,7 @@ sublime text의 `Goto Anything...` 이나 `Command Palette...`는 사용자 입�
   
   
 작성중....
+[Fuzzy Search 구현1](http://jsfiddle.net/hyeonjae/8m7faznf/1/)
   
   
 참고자료
