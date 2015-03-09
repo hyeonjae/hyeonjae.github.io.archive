@@ -11,7 +11,7 @@ sublime text의 `Goto Anything...` 이나 `Command Palette...`는 사용자 입�
 `Google`이나 `Naver`의 `'이것을 찾으셨나요?'`와 같은 기능에서 유용하다.
   
   
-작성중....
+작성중....  
 [Fuzzy Search 구현1](http://jsfiddle.net/hyeonjae/8m7faznf/1/)
   
   

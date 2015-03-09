@@ -244,3 +244,36 @@ person1.sayName();      // 에러
   
   
 ![3]({{ site.url }}/assets/javascript_prototype_asign2.png)
+  
+  
+  
+### 생성자 패턴과 프로토타입 패턴의 조합
+  
+{% highlight javascript %}
+function Person(name, age, job){
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = ["Shelby", "Court"];
+}
+
+Person.prototype = {
+    constructor: Person,
+    sayName: function() {
+        alert(this.name);
+    }
+};
+
+var person1 = new Person("Nicholas", 29, "Software Engineer");
+var person2 = new Person("Greg", 27, "Doctor");
+
+person1.friends.push("Van");
+
+alert(person1.friends);     // "Shelby,Court,Van"
+alert(person2.friends);     // "Shelby,Court"
+alert(person1.friends === person2.friends);     // false
+alert(person1.sayName === person2.sayName);     // true
+{% endhighlight %}
+  
+인스턴스 프로퍼티는 생성자 패턴으로, 메서드와 공유 프로퍼티는 프로토타입 패턴으로 구현하였다. 각각의 장점만 취한 가장 널리 사용되는 패턴이다.
+
