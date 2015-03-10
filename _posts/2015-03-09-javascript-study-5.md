@@ -104,8 +104,8 @@ instance2.sayAge();       //27
 생성자 훔치기 후
 
 
-이제 부모 프로퍼티를 더 이상 자식 인스턴스에서 공유하지 않게 되었다.
-
+이제 부모 프로퍼티를 더 이상 자식 인스턴스에서 공유하지 않게 되었다.  
+하지만 부모의 프로퍼티는 사용하지 않지만 생성되었다. 이 문제는 부모 객체를 생성하기 전에 빈 객체를 생성해서 prototype 연결만 하는 방법으로 해결하였다. 아래의 코드를 보자.
 
 ### 프로토타입 상속
 더글라스 클락포드가 제안한 상속 방법이다.
@@ -140,30 +140,44 @@ alert(person.friends);   //"Shelby,Court,Van,Rob,Barbie"
 ![3]({{ site.url }}/assets/javascript_inheritance3.png)
 
 
+이제 모든 경우를 고려하여 상속을 구현해본다.
+
 ### 기생 조합 상속
 
-기존 조합 상속 코드를 다시 살펴보겠다.
-
 {% highlight javascript %}
+// 더글라스 클락포드가 제안한 프로토타입 상속
+function object(o){
+    function F(){}
+    F.prototype = o;
+    return new F();
+}
+
+// 기생 조합 상속을 위한 함수
+function inheritPrototype(subType, superType){
+    var prototype = object(superType.prototype);
+    prototype.constructor = subType;
+    subType.prototype = prototype;
+}
+
 function SuperType(name){
-  this.name = name;
-  this.colors = ["red", "blue", "green"];
+    this.name = name;
+    this.colors = ["red", "blue", "green"];
 }
 
 SuperType.prototype.sayName = function(){
-  alert(this.name);
+    alert(this.name);
 };
 
 function SubType(name, age){  
-  // 생성자 훔치기로 name 프로퍼티를 SubType에 생성
-  // 이 과정에서 SuperType의 colors도 SubType에 생성됨
-  SuperType.call(this, name);
+    SuperType.call(this, name);
 
-  this.age = age;
+    this.age = age;
 }
 
-SubType.prototype = new SuperType();
+// 상속
+inheritPrototype(SubType, SuperType);
 
+// 자식 고유의 메서드 정의
 SubType.prototype.sayAge = function(){
     alert(this.age);
 };
@@ -179,4 +193,3 @@ alert(instance2.colors);  //"red,blue,green"
 instance2.sayName();      //"Greg";
 instance2.sayAge();       //27
 {% endhighlight %}
-생성자 훔치기로 부모의 프로퍼티를 자식에도 만들었다. 하지만 부모에도 해당 프로퍼티가 이미 생성되어있다.
