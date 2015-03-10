@@ -96,4 +96,19 @@ instance2.sayAge();       //27
 {% endhighlight %}
 `SuperType`의 `this.colors`는 배열을 가리킨다. 배열은 primitive type이 아니므로 항상 레퍼런싱한다. 생성자 훔치기 기법을 이용하지 않았다면 `instance1.colors.push("black");`코드 때문에 `instance2.colors`에도 영향을 줄 것이다.
 
-![1]({{ site.url }}/assets/javascript_inheritance2.png)
+![1]({{ site.url }}/assets/javascript_inheritance1.png)
+생성자 훔치기 전  
+
+
+![2]({{ site.url }}/assets/javascript_inheritance2.png)
+생성자 훔치기 후
+
+
+이제 부모 프로퍼티를 더 이상 자식 인스턴스에서 공유하지 않게 되었다.
+
+
+### 프로토타입 상속
+더글라스 클락포드가 제안한 상속 방법이다.
+{% highlight javascript %}
+
+{% endhighlight %}
