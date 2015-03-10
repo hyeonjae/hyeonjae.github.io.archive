@@ -138,3 +138,45 @@ alert(person.friends);   //"Shelby,Court,Van,Rob,Barbie"
 
 눈여겨 봐야할 점은, `anotherPerson1.name`과 `anotherPerson2.name`은 각각의 프로퍼티가 생겼지만, `anotherPerson1.friends`와 `anotherPerson2.friends`는 공유한다는 점이다.
 ![3]({{ site.url }}/assets/javascript_inheritance3.png)
+
+
+### 기생 조합 상속
+
+기존 조합 상속 코드를 다시 살펴보겠다.
+
+{% highlight javascript %}
+function SuperType(name){
+  this.name = name;
+  this.colors = ["red", "blue", "green"];
+}
+
+SuperType.prototype.sayName = function(){
+  alert(this.name);
+};
+
+function SubType(name, age){  
+  // 생성자 훔치기로 name 프로퍼티를 SubType에 생성
+  // 이 과정에서 SuperType의 colors도 SubType에 생성됨
+  SuperType.call(this, name);
+
+  this.age = age;
+}
+
+SubType.prototype = new SuperType();
+
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+};
+
+var instance1 = new SubType("Nicholas", 29);
+instance1.colors.push("black");
+alert(instance1.colors);  //"red,blue,green,black"
+instance1.sayName();      //"Nicholas";
+instance1.sayAge();       //29
+
+var instance2 = new SubType("Greg", 27);
+alert(instance2.colors);  //"red,blue,green"
+instance2.sayName();      //"Greg";
+instance2.sayAge();       //27
+{% endhighlight %}
+생성자 훔치기로 부모의 프로퍼티를 자식에도 만들었다. 하지만 부모에도 해당 프로퍼티가 이미 생성되어있다.
