@@ -217,12 +217,12 @@ function inheritPrototype(subType, superType){
 
 inheritPrototype(SubType, SuperType);
 {% endhighlight %}
-모두 실행
+상속 코드 실행
 
 ---
 
 ![7]({{ site.url }}/assets/javascript_inheritance_final4.png)  
-최종
+최종(자식 인스턴스 생성)
 
 
 ---
