@@ -110,5 +110,31 @@ instance2.sayAge();       //27
 ### 프로토타입 상속
 더글라스 클락포드가 제안한 상속 방법이다.
 {% highlight javascript %}
-
+function object(o) {
+  function F(){}
+  F.prototype = o;
+  return new F();
+}
 {% endhighlight %}
+`object()`함수는 임시 생성자를 만들어, 주어진 객체를 생성자의 프로토타입으로 할당한 다음임시 생성자의 인스턴스를 반환한다.
+
+
+{% highlight javascript %}
+var person = {
+    name: "Nicholas",
+    friends: ["Shelby", "Court", "Van"]
+};
+
+var anotherPerson1 = object(person);
+anotherPerson1.name = "Greg";
+anotherPerson1.friends.push("Rob");
+
+var anotherPerson2 = object(person);
+anotherPerson2.name = "Linda";
+anotherPerson2.friends.push("Barbie");
+
+alert(person.friends);   //"Shelby,Court,Van,Rob,Barbie"
+{% endhighlight %}
+
+눈여겨 봐야할 점은, `anotherPerson1.name`과 `anotherPerson2.name`은 각각의 프로퍼티가 생겼지만, `anotherPerson1.friends`와 `anotherPerson2.friends`는 공유한다는 점이다.
+![3]({{ site.url }}/assets/javascript_inheritance3.png)
