@@ -197,16 +197,32 @@ instance2.sayAge();       //27
 
 ![4]({{ site.url }}/assets/javascript_inheritance_final1.png)  
 
+초기 상태
+
 ---
 
 ![5]({{ site.url }}/assets/javascript_inheritance_final2.png)  
 
+`inheritPrototype(SubType, SuperType);`의 `var prototype = object(superType.prototype);`까지 실행
+
 ---
 
 ![6]({{ site.url }}/assets/javascript_inheritance_final3.png)  
+{% highlight javascript %}
+function inheritPrototype(subType, superType){
+    var prototype = object(superType.prototype);
+    prototype.constructor = subType;
+    subType.prototype = prototype;
+}
+
+inheritPrototype(SubType, SuperType);
+{% endhighlight %}
+모두 실행
 
 ---
 
 ![7]({{ site.url }}/assets/javascript_inheritance_final4.png)  
+최종
+
 
 ---
