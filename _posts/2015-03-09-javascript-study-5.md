@@ -195,7 +195,18 @@ instance2.sayAge();       //27
 {% endhighlight %}
 
 
-![4]({{ site.url }}/assets/javascript_inheritance_final1.png)
-![5]({{ site.url }}/assets/javascript_inheritance_final2.png)
-![6]({{ site.url }}/assets/javascript_inheritance_final3.png)
-![7]({{ site.url }}/assets/javascript_inheritance_final4.png)
+![4]({{ site.url }}/assets/javascript_inheritance_final1.png)  
+
+---
+
+![5]({{ site.url }}/assets/javascript_inheritance_final2.png)  
+
+---
+
+![6]({{ site.url }}/assets/javascript_inheritance_final3.png)  
+
+---
+
+![7]({{ site.url }}/assets/javascript_inheritance_final4.png)  
+
+---
