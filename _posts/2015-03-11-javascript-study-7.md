@@ -1,5 +1,5 @@
 ---
-title:  "javascript 스터디 #6"
+title:  "javascript 스터디 #7"
 date:   2015-03-11 10:03:07
 categories: javascript
 ---
@@ -12,7 +12,7 @@ categories: javascript
 {% highlight javascript %}
 // 재귀 함수
 function factorial(num) {
-  if( num<= 1 ){
+  if( num <= 1 ){
     return 1;
   } else {
     return num * factorial(num-1);
@@ -33,7 +33,7 @@ var result = anotherFactorial(10);  // 에러
 {% highlight javascript %}
 // arguments의 callee를 이용
 function factorial(num) {
-  if( num<= 1 ){
+  if( num <= 1 ){
     return 1;
   } else {
     return num * arguments.callee(num-1);
@@ -46,7 +46,7 @@ function factorial(num) {
 {% highlight javascript %}
 // 이름 붙은 함수 표현식 사용
 var factorial = (function f(num) {
-  if( num<= 1 ){
+  if( num <= 1 ){
     return 1;
   } else {
     return num * f(num-1);
@@ -54,4 +54,22 @@ var factorial = (function f(num) {
 });
 {% endhighlight %}
 
+  
+  
 
+{% highlight javascript %}
+function createComparisonFunction(propertyName) {
+  return function(object1, object2){ {
+    var value1 = object1[propertyName];
+    var value2 = object2[propertyName];
+    if( value1 < value2 ) {
+      return -1;
+    } else if( value1 > value2 ) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+}
+{% endhighlight %}
+  
