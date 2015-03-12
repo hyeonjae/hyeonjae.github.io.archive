@@ -1,7 +1,7 @@
 ---
-title:  "title"
+title:  "javascript 스터디 #6"
 date:   2015-03-09 19:06:18
-categories: 
+categories: javascript
 ---
 
 1. primitive 타입
