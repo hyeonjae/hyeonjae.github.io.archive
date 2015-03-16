@@ -1,8 +1,9 @@
 ---
 title:  "type detection in javascript"
-date:   2015-03-05 22:20:06
+date:   2015-03-16 18:45:35
 categories: javascript
 ---
+
 
 ### 배열 감지  
 
