@@ -47,7 +47,7 @@ IE는 점유율이 높고, 특히 버전별로 이슈가 있는 만큼 IE에서 
 
 
 참고자료  
- > - [1](http://marketshare.hitslink.com/browser-market-share.aspx?qprid=3&qpcustomb=0)
- > - [2](http://netmarketshare.com/)
- > - [3](http://prolite.tistory.com/304)
- > - [4](http://gs.statcounter.com/#desktop-browser-ww-monthly-201402-201503)
+ > - [http://marketshare.hitslink.com/browser-market-share.aspx?qprid=3&qpcustomb=0](http://marketshare.hitslink.com/browser-market-share.aspx?qprid=3&qpcustomb=0)  
+ > - [http://netmarketshare.com/](http://netmarketshare.com/)  
+ > - [http://prolite.tistory.com/304](http://prolite.tistory.com/304)  
+ > - [http://gs.statcounter.com/#desktop-browser-ww-monthly-201402-201503](http://gs.statcounter.com/#desktop-browser-ww-monthly-201402-201503)  
