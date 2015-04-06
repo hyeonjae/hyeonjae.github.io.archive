@@ -9,10 +9,10 @@ categories: regex
 
 ### 문자열
 
-{% highlight javascript %}
+{% highlight sh %}
 /"(?:[^"\\]|\\.)*"/g
 {% endhighlight %}
-{% highlight javascript %}
+{% highlight sh %}
 /"(\\.|[^\"])*"/g
 {% endhighlight %}
 
@@ -20,7 +20,7 @@ categories: regex
   
 
 ### C스타일 주석
-{% highlight javascript %}
+{% highlight sh %}
 /((?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:\/\/.*))/g
 {% endhighlight %}
 
