@@ -11,6 +11,8 @@ categories: regex
 
 {% highlight javascript %}
 /"(?:[^"\\]|\\.)*"/g
+{% endhighlight %}
+{% highlight javascript %}
 /"(\\.|[^\"])*"/g
 {% endhighlight %}
 
