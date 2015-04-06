@@ -9,7 +9,7 @@ categories: regex
 
 ### 문자열
 
-{% highlight sh %}
+{% highlight regex %}
 /"(?:[^"\\]|\\.)*"/g
 {% endhighlight %}
 {% highlight sh %}
