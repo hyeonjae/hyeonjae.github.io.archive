@@ -83,5 +83,5 @@ describe("hello world", function() {
 $ karma start my.conf.js
 {% endhighlight %}
 
-![1](https://github.nhnent.com/hyeonjae-park/fe-training/blob/master/assets/5-karma-result.png)
+![1]({{ site.url }}/assets/karma-results.png)
 
