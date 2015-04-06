@@ -1,6 +1,6 @@
 ---
 title:  "javascript 이벤트 polyfill"
-date:   2015-04-06 18:01:17
+date:   2015-04-07 01:01:17
 categories: javascript
 ---
 
