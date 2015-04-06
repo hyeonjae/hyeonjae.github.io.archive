@@ -22,6 +22,7 @@ var person2 = createPerson("Creg", 28, "Doctor");
 {% endhighlight %}
 
 특징
+
  - new 없이 객체 생성할 수 있음
  - 메소드가 객체마다 별도로 생성됨
 
@@ -42,6 +43,7 @@ var person2 = new Person("Creg", 28, "Doctor");
 {% endhighlight %}
 
 특징
+
  - new로 객체를 생성 (instanceof 시 Person으로 나옴)
  - 메소드가 객체마다 별도로 생성됨
 
@@ -64,6 +66,7 @@ var person2 = new Person("Greg", 27, "Doctor");
 {% endhighlight %}
 
 특징
+
  - new로 객체를 생성 (instanceof 시 Person으로 나옴)
  - constructor 프로퍼티를 명시적으로 생성
  - 메소드 생성 부분이 function 외부에 있음
@@ -88,6 +91,7 @@ var person2 = new Person("Greg", 27, "Doctor");
 {% endhighlight %}
 
 특징
+
  - 완벽한 캡슐화j
  - 메소드도 공유
  - instanceof로 객체 확인 가능
@@ -158,6 +162,7 @@ myobj.getName();
 {% endhighlight %}
 
 비슷한 방법으로 객체를 직접 리턴하는 방법도 있다.
+
 {% highlight javascript %}
 var myobj = (function () {
   var name = "Nicholas";
@@ -179,6 +184,7 @@ myobj.getName();
 {% endhighlight %}
 
 일부 함수만 선택적으로 노출하고 싶은 경우 다음과 같은 방식을 사용하면 좋다.
+
 {% highlight javascript %}
 var myobj = (function () {
   var name = "Nicholas";
