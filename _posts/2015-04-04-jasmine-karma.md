@@ -83,5 +83,5 @@ describe("hello world", function() {
 $ karma start my.conf.js
 {% endhighlight %}
 
-![1]({{ site.url }}/assets/karma-results.png)
+![1]({{ site.url }}/assets/karma-result.png)
 
