@@ -9,17 +9,18 @@ categories: regex
 
 ### 문자열
 
+{% highlight javascript %}
 /"(?:[^"\\]|\\.)*"/g
 /"(\\.|[^\"])*"/g
-
+{% endhighlight %}
 
 [http://stackoverflow.com/questions/249791/regex-for-quoted-string-with-escaping-quotes](http://stackoverflow.com/questions/249791/regex-for-quoted-string-with-escaping-quotes)
   
 
 ### C스타일 주석
-
+{% highlight javascript %}
 /((?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:\/\/.*))/g
-
+{% endhighlight %}
 
 [http://blog.ostermiller.org/find-comment](http://blog.ostermiller.org/find-comment)
 
