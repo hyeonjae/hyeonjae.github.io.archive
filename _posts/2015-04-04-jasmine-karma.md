@@ -60,7 +60,36 @@ $ karma init my.conf.js
 karma start my.conf.js --log-level debug --single-run
 {% endhighlight %}  
   
-  
+karma conf파일 설명
+
+ - frameworks: 사용할 프레임워크를 명시한다.
+{% highlight javascript %}
+  frameworks: ['jasmine'],
+{% endhighlight %}
+
+ - files: 테스트 할 자바스크림트 파일과 테스트 코드 파일 
+{% highlight javascript %}
+  files: [
+    'js/common.js',
+    'js/dom.js',
+    'js/event.js',
+    'js/tooltip.js',
+    'js/draw.js',
+    'spec/browserSpec.js',
+    'spec/commonSpec.js',
+    'spec/domSpec.js',
+    'spec/eventSpec.js',
+    'spec/tooltipSpec.js',
+    'spec/drawSpec.js'
+  ],
+{% endhighlight %}  
+ 
+ - browsers: 실행 시킬 브라우저
+{% highlight javascript %}
+  browsers: ['Chrome', 'Firefox', 'Safari'],
+{% endhighlight %}  
+
+
 ### jasmine 테스트 코드 작성  
 
 {% highlight sh %}
