@@ -31,5 +31,5 @@ if (typeof window.addEventListener === 'function') {
   utils.removeListener = function (el, type, fn) {
     el['on' + type] = null;
   };
-} else 
+}
 {% endhighlight %}
