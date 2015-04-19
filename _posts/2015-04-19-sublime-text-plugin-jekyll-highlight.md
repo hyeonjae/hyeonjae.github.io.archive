@@ -67,6 +67,6 @@ class ConvertHighlightJekyllToMarkdownCommand (sublime_plugin.TextCommand):
 저장하고, `ctrl+shift+[`와 `ctrl+shift+]`를 눌러주면 된다.
 
 
-_소스 코드를 그대로 복사, 붙여넣기 하지마세요._
+_소스 코드를 그대로 복사, 붙여넣기 하지마세요._  
 _`{ % highlight % }`에서 `{`와 `%` 사이의 공백을 지우고 쓰세요._
 
