@@ -27,8 +27,8 @@ class ConvertHighlightMarkdownToJekyllCommand (sublime_plugin.TextCommand):
 		start = re.compile(r'^```([A-z]+)$', re.M)
 		end = re.compile(r'^```[ ]{0,2}$', re.M)
 
-		text = re.sub(start, r'{% highlight \1 %}', text)
-		text = re.sub(end, r'{% endhighlight %}', text)
+		text = re.sub(start, r'{ % highlight \1 % }', text)
+		text = re.sub(end, r'{ % endhighlight % }', text)
 
 		self.view.replace(edit, region, text)
 {% endhighlight %}
@@ -45,8 +45,8 @@ class ConvertHighlightJekyllToMarkdownCommand (sublime_plugin.TextCommand):
 		region = sublime.Region(0, self.view.size())
 		text = self.view.substr(sublime.Region(0, self.view.size()))
 
-		start = re.compile(r'^{% highlight ([A-z]+) %}$', re.M)
-		end = re.compile(r'^{% endhighlight %}$', re.M)
+		start = re.compile(r'^{ % highlight ([A-z]+) % }$', re.M)
+		end = re.compile(r'^{ % endhighlight % }$', re.M)
 
 		text = re.sub(start, r'```\1', text)
 		text = re.sub(end, r'```', text)
@@ -66,4 +66,6 @@ class ConvertHighlightJekyllToMarkdownCommand (sublime_plugin.TextCommand):
 {% endhighlight %}
 저장하고, `ctrl+shift+[`와 `ctrl+shift+]`를 눌러주면 된다.
 
+
+*** 소스 코드를 그대로 복사&붙여넣기 하지마세요. `{ % highlight % }`에서 `{`와 `%` 사이의 공백을 지우고 쓰세요. ***
 
