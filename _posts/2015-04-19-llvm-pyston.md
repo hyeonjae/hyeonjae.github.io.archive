@@ -1,6 +1,6 @@
 
 ---
-title:  "LLVM Python Implementation: Pyston"
+title:  "LLVM Python Implementation Pyston"
 date:   2015-04-19 11:58:01
 categories: llvm
 ---
