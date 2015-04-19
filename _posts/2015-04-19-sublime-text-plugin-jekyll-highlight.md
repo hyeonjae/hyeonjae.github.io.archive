@@ -10,7 +10,7 @@ categories: jekyll
 Sublime text로 Jekyll 마크다운을 작성하다보면, Jekyll형식의 코드 하이라이팅 블럭과 Markdown형식의 코드 하이라이팅 차이때문에 불편함을 느낀다.
 
 # 일반적인 마크다운
-{% highlight plaintext %}
+{% highlight text %}
  ```python
  def foo():
 	 return 'hello'*10
@@ -18,7 +18,7 @@ Sublime text로 Jekyll 마크다운을 작성하다보면, Jekyll형식의 코�
 {% endhighlight %}
 
 # Jekyll 형식 마크다운
-{% highlight plaintext %}
+{% highlight text %}
  { % highlight python % }
  def foo():
 	 return 'hello'*10
