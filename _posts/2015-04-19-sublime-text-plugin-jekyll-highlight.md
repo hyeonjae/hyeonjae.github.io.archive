@@ -11,18 +11,18 @@ Sublime text로 Jekyll 마크다운을 작성하다보면, Jekyll형식의 코�
 
 # 일반적인 마크다운
 {% highlight text %}
- ```python
- def foo():
-	 return 'hello'*10
- ```
+```python
+def foo():
+	return 'hello'*10
+```
 {% endhighlight %}
 
 # Jekyll 형식 마크다운
 {% highlight text %}
- { % highlight python % }
- def foo():
-	 return 'hello'*10
- { % endhighlight python % }
+{ % highlight python % }
+def foo():
+	return 'hello'*10
+{ % endhighlight % }
 {% endhighlight %}
 
 Jekyll에서 GFM으로, GFM에서 Jekyll로 변환하는 플러그인을 만들어보자.
