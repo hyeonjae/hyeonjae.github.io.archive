@@ -1,4 +1,3 @@
-
 ---
 title:  "JSLint, JSHint, ESLint"
 date:   2015-04-19 12:06:40
