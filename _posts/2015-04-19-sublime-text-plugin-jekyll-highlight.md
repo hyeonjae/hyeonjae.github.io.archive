@@ -87,6 +87,6 @@ class ConvertHighlightJekyllToMarkdownCommand (sublime_plugin.TextCommand):
 _소스 코드를 그대로 복사, 붙여넣기 하지마세요._  
 _`{ % highlight % }`에서 `{`와 `%` 사이의 공백을 지우고 쓰세요._  
   
-__참고자료__
+__참고자료__  
 [https://www.sublimetext.com/docs/3/api_reference.html#sublime.Edit](https://www.sublimetext.com/docs/3/api_reference.html#sublime.Edit)
 
