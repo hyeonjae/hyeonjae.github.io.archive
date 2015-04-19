@@ -59,7 +59,7 @@ JSHint 기분 몇가지 옵션을 정리해보았다.
 
 # immed
 
-```javascript
+{% highlight javascript %}
 // bad
 function () {
 }();
@@ -67,7 +67,7 @@ function () {
 // good
 (function () {
 })();
-```
+{% endhighlight %}
  * deprecated된 옵션, 코딩 스타일은 JSCS project 참고
 
 # indent
@@ -98,12 +98,12 @@ function () {
  
  * 선언하지 않고 사용하는 변수(전역변수) 사용 금지
  * 아래와 같은 경우 방지해준다.
-```javascript
+{% highlight javascript %}
 function test() {
   var myVar = 'Hello, World';
   console.log(myvar); // Oops, typoed here. JSHint with undef will complain
 }
-```
+{% endhighlight %}
 
 # unused
 
