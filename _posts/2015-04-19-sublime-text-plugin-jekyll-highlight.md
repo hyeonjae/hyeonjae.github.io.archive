@@ -8,6 +8,23 @@ categories: jekyll
 
 
 Sublime text로 Jekyll 마크다운을 작성하다보면, Jekyll형식의 코드 하이라이팅 블럭과 Markdown형식의 코드 하이라이팅 차이때문에 불편함을 느낀다.
+
+# 일반적인 마크다운
+{% highlight markdown %}
+ ```python
+ def foo():
+	 return 'hello'*10
+ ```
+{% endhighlight %}
+
+# Jekyll 형식 마크다운
+{% highlight markdown %}
+ {% highlight python %}
+ def foo():
+	 return 'hello'*10
+ {% endhighlight python %}
+{% endhighlight %}
+
 Jekyll에서 GFM으로, GFM에서 Jekyll로 변환하는 플러그인을 만들어보자.
 
 
