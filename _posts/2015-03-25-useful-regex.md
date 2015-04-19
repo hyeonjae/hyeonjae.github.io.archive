@@ -27,5 +27,9 @@ var pattern = /((?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:\/\/.*))/g;
 [http://blog.ostermiller.org/find-comment](http://blog.ostermiller.org/find-comment)
 
 
-
+### 안전한 비밀번호
+{% highlight javascript %}
+// 8~30자리, 숫자 포함, 영문자 포함, 특수문자 포함
+var pattern = /^.*(?=^.{8,30}$)(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*_\)\(+=|}{\]\[\'\":;><.,?/]).*$/;
+{% endhighlight %} 
 
