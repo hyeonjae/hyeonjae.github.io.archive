@@ -18,7 +18,7 @@ Sublime text로 Jekyll 마크다운을 작성하다보면, Jekyll형식의 코�
 {% endhighlight %}
 
 # Jekyll 형식 마크다운
-{% highlight 마크다운 %}
+{% highlight plaintext %}
  { % highlight python % }
  def foo():
 	 return 'hello'*10
