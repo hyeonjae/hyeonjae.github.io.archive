@@ -21,7 +21,7 @@ var pattern = /"(\\.|[^\"])*"/g;
 
 ### C스타일 주석
 {% highlight javascript %}
-var pattern = /((?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:\/\/.*))/g;
+/((?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:\/\/.*))/g;
 {% endhighlight %}
 
 [http://blog.ostermiller.org/find-comment](http://blog.ostermiller.org/find-comment)
@@ -30,6 +30,12 @@ var pattern = /((?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:\/\/.*))/g;
 ### 안전한 비밀번호
 {% highlight javascript %}
 // 8~30자리, 숫자 포함, 영문자 포함, 특수문자 포함
-var pattern = /^.*(?=^.{8,30}$)(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*_\)\(+=|}{\]\[\'\":;><.,?/]).*$/;
+/^.*(?=^.{8,30}$)(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*_\)\(+=|}{\]\[\'\":;><.,?/]).*$/;
 {% endhighlight %} 
+
+
+### float 숫자
+{% highlight javascript %}
+/(?:\d*\.)?\d+/;
+{% endhighlight %}
 
