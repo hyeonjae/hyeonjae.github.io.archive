@@ -1,7 +1,7 @@
 ---
 title:  "Sublime text 플러그인: 코드 하이라이팅 블럭 변환하기"
 date:   2015-04-19 15:32:14
-categories: 
+categories: jekyll
 ---
 
 # Jekyll 형식으로 코드 하이라이팅 블럭 변환하기
