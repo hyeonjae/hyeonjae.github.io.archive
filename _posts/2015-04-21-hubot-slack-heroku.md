@@ -12,7 +12,7 @@ $ mkdir mybot
 $ cd mybot
 $ yo hubot
 {% endhighlight %}
-{% endhighlight %}
+{% highlight text %}
 Owner: {{YOUR_ID}}
 Bot name: mybot
 Description: A simple my bot
@@ -23,7 +23,7 @@ Bot adapter: slack
 {% highlight sh %}
 $ bin/hubot --name mybot
 {% endhighlight %}
-{% endhighlight %}
+{% highlight text %}
 mybot ping
 mybot> PONG
 {% endhighlight %}
@@ -43,7 +43,7 @@ API Token값이 발급된다.
 $ HUBOT_SLACK_TOKEN=xoxb-452*****33-OyZi***************DWup7 ./bin/hubot --adapter slack
 {% endhighlight %}
 slack에서 생성한 hubot에게 ping을 날려, PONG라고 답이 오는지 확인한다.
-{% endhighlight %}
+{% highlight text %}
 @myapp: ping
 {% endhighlight %}
 
@@ -86,7 +86,7 @@ $ heroku ps:scale web=1
 
 # 테스트
 slack에 가서 mybot에게 ping을 날려본다.
-{% endhighlight %}
+{% highlight text %}
 @mybot: ping
 {% endhighlight %}
 PONG이라고 응답이 오면 성공!!  
