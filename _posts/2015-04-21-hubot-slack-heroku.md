@@ -54,7 +54,7 @@ slack에서 생성한 hubot에게 ping을 날려, PONG라고 답이 오는지 �
 $ cd mybot
 $ heroku login
 $ heroku create # 이때 생성된 주소 기억하기
-				# http://**********.herokuapp.com
+                # http://**********.herokuapp.com
 {% endhighlight %}
 
 # heroku 테스트
