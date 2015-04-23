@@ -221,7 +221,7 @@ module.exports = (robot) ->
 {% endhighlight %}
 
 hubot-scripts.json 파일 수정
-```json  
+{% highlight json %}
 [
   "lotto",
   "calc"
