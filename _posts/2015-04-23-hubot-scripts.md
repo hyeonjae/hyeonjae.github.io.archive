@@ -90,8 +90,8 @@ getLottery()
 이제 `lotto.coffee`파일을 hubot의 scripts폴더에 넣는다. 그리고 hubot-scripts.json 파일을 수정하여, lotto script를 추가한다.
 {% highlight json %}
 [
-    'lotto'
-];
+    "lotto"
+]
 {% endhighlight %}
 이제 배포하면 끝~  
 bot에게 `@mybot: lotto`라고 물어보면 된다.  
