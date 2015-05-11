@@ -20,7 +20,7 @@ while(++i < NUM_ITERATION ){
 {% endhighlight %}
  
 ### 방법2.
-{% endhighlight %}
+{% highlight c %}
 int comp(const void* n1, const void* n2){
     return rand()%2;
 }
