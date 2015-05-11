@@ -55,4 +55,4 @@ for(i=0; i<N; i++){
 자세히 보면 shuffle하기 전의 값들이 남아있는 걸 볼 수 있다.
 
 
-방법 3은 이전글 배열에서 중복하지 않고 무작위로 숫자 뽑기와 관련이 있다. 중복하지 않고 무작위로 배열의 크기만큼 숫자를 뽑으면 shuffling 된 것과 같다. 역시 배열의 크기 N번 만큼만 루프를 돌고 shuffling하였다. 이 방법은 [Fisher-Yates-Shuffle]( http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) 이라고 한다.
+방법 3은 이전글 배열에서 중복하지 않고 무작위로 숫자 뽑기와 관련이 있다. 중복하지 않고 무작위로 배열의 크기만큼 숫자를 뽑으면 shuffling 된 것과 같다. 역시 배열의 크기 N번 만큼만 루프를 돌고 shuffling하였다. 이 방법은 [Fisher-Yates-Shuffle](http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) 이라고 한다.
