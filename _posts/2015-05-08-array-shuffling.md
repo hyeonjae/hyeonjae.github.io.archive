@@ -1,7 +1,7 @@
 ---
 title:  "배열 shuffling 하기"
 date:   2015-05-08 09:32:40
-categories: 
+categories: algorithm
 ---
 
 
