@@ -1,7 +1,7 @@
 ---
 title:  "CoffeeScript로 Hubot Script만들기"
 date:   2015-04-23 20:02:41
-categories: 
+categories: hubot
 ---
 
 hubot script는 CoffeeScript로 되어 있다.  
