@@ -47,28 +47,28 @@ lookahead는 앞의 정규식 조건에 추가 조건을 기술할 수 있다. �
 
 {% highlight c %}
 // 알파벳만 있음
-abcdefabcdef
+"abcdefabcdef"
 
 // 특수문자가 없음
-abcdef12456
+"abcdef12456"
 
 // 짧음
-ab!@12
+"ab!@12"
 
 // hello 단어 포함
-hello!@#123
-!@#hello123
-!@#123hello
+"hello!@#123"
+"!@#hello123"
+"!@#123hello"
 
 // welcome 단어 포함
-welcome!@#123
-!@#welcome123
-!@#123welcome
+"welcome!@#123"
+"!@#welcome123"
+"!@#123welcome"
 
 // 유효한 비밀번호
-hi!@#123
-!@#hi123
-!@#123hi
+"hi!@#123"
+"!@#hi123"
+"!@#123hi"
 {% endhighlight %}
 
 최소 매칭, lookahead, capture 정도만 알면 정규식을 잘 알고 있다고 볼 수 있다.  
