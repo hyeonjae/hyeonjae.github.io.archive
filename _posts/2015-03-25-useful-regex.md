@@ -1,8 +1,7 @@
 ---
 title: 자주 쓰는 정규식 모음
-date: {}
+date: 2015-03-06 15:29:10
 categories: regex
-published: true
 ---
 
 ### 최소매칭
