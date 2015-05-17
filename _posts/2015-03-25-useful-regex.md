@@ -20,10 +20,34 @@ printf("hello %s", "Kim");
 {% endhighlight %}  
   
 `.*`대신 `.*?`로 할 경우 최소 매칭하게 된다.
-
-### 캡쳐
   
+  
+### lookaround
+  
+{% highlight text %}
+(?=(regex)) - positive lookahead
+(?!(regex)) - negative lookahead
+(?<=(regex)) - positive lookbehind
+(?<!(regex)) - negative lookbehind
+{% endhighlight %}
+자바스크립트에선 lookbehind 기능을 지원하지 않는다.  
 
+lookahead는 앞의 정규식 조건에 추가 조건을 기술할 수 있다. 앞의 정규식 조건에 매칭되면, 그 이후의 입력 문자열을 미리 매칭시켜본다.
+{% highlight text %}
+/^.*
+    (?=^.{8,30}$)
+    (?=.*[0-9])
+    (?=.*[a-zA-Z])
+    (?=.*[!@#$%^&*_\)\(+=|}{\]\[\'\":;><.,?/])
+    (?!.*(?:hello|welcome).*)
+.*$/
+{% endhighlight %}
+유효한 비밀번호 매칭하는 정규식이다. `.*`에 `(?=^.{8,30}$)`조건을 추가로 기술한다. 모든 문자에 매칭되는데, 거기에 `.{8,30}`조건을 추가한다. 길이가 8~30 이고, `[0-9]`가 있어야하고, `[a-zA-Z]`도 있어야 하고, 특수문자도 포함되어야 한다.  
+거기에 negative lookahead 조건으로 특정 단어가 포함되지 않는 조건을 추가하였다.  
+
+
+최소 매칭, lookahead, capture 정도만 알면 정규식을 잘 알고 있다고 볼 수 있다.  
+  
 
 
 # 유용한 정규식 모음
