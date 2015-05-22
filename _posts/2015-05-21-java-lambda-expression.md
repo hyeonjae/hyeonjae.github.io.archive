@@ -373,4 +373,4 @@ roster
 `filter`로 특정 조건을 만족하는 원소를 걸러내고, 각각을 `map`으로 전처리 작업을 수행한 다음, `forEach`로 최종 동작을 수행한다.
 
 ---
-참고자료 : [http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach3](http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach3)
+참고자료 : [http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html](http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
