@@ -1,7 +1,7 @@
 ---
 title:  "Let's start to Jekyll!"
 date:   2015-02-07 19:42:00
-categories: jekyll update
+categories: jekyll
 ---
 Getting started with Jekyll in github.io
 

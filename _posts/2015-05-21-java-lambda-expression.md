@@ -1,7 +1,7 @@
 ---
 title:  "Java의 lambda expression"
 date:   2015-05-22 20:59:14
-categories: java, lambda
+categories: java
 ---
 
 # Lambda Expressions
