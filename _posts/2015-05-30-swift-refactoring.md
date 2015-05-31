@@ -39,7 +39,7 @@ for member in members {
 {% endhighlight %}
 
 `map`을 이용해보자. `map`은 아래와 같이 작동한다.
-{% endhighlight %}
+{% highlight swift %}
 [ x1, x2, ... , xn].map(f) -> [f(x1), f(x2), ... , f(xn)]
 {% endhighlight %}
 `map`의 파라미터에 `Member`를 인자로 갖는 함수를 넣어준다.
