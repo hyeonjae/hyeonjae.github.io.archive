@@ -65,3 +65,9 @@ node a.out.js
 {% endhighlight %}
 
 많은 최적화 옵션을 적용할 수 있다고 한다. 다음번에는 emscripten으로 생성된 코드의 성능을 비교 분석해보겠다.
+  
+  
+  
+### 다음 주제:
+ - relooper algorithm
+ - other c/c++ to javascript compiler (Emscripten, Mandreel and Duetto)
