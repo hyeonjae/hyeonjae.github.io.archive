@@ -12,7 +12,7 @@ Emscripten은 LLVM bitcode를 Javascript코드를 만들어 주는 프로젝트�
  > Emscripten compiles LLVM bitcode into JavaScript, which makes it possible to compile C and C++ source code to JavaScript (by first compiling it into LLVM bitcode using Clang), which can be run on the web. Emscripten has been used to port large existing C and C++ codebases, for example Python (the standard CPython implementation), the Bullet physics engine, and the eSpeak speech synthesizer, among many others.
 
 
-Emscripten는 Javascript로 작성되었고, high-level Javascript control folw를 생성하는 Relooper algorithm이 포함되어 있다. 
+Emscripten는 Javascript로 작성되었고, high-level Javascript control flow를 생성하는 Relooper algorithm이 포함되어 있다. 
 
  > Emscripten itself is written in JavaScript. Significant components include the Relooper Algorithm which generates high-level JavaScript control flow structures ("if", "while", etc.) from the low-level basic block information present in LLVM bitcode, as well as a JavaScript parser for LLVM assembly.
 
