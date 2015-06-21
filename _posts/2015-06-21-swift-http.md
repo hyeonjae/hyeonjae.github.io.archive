@@ -14,19 +14,22 @@ iOS는 GUI에서 작동하기 때문에, 대부분의 HTTP Request 라이브러�
   
 # 문제
 HTTP method 중 PUT, POST에 JSON파라미터를 입력받아 HTTP Request하는 API가 JSON파라미터로 Dictionary타입만 입력 받도록 구현되어 있었다.  
+다른 라이브러리도 마찬가지였다.  
 배열도 JSON형태중 하나인데, SwiftHTTP는 Object형태만 입력받도록 되어 있는 문제가 있었다.  
-{% highlight json %}
 // json object type
+{% highlight json %}
 {
     "id": 1002,
     "name": "swift"
     "cc": [1,2,5,6]
 }
+{% endhighlight %}
 
 // json array type
+{% highlight json %}
 [
-    {"id": 1002, name: "swift"},
-    {"id": 1003, name: "objective-c"}
+    {"id": 1002, "name": "swift"},
+    {"id": 1003, "name": "objective-c"}
 ]
 {% endhighlight %}
   
