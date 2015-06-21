@@ -20,7 +20,7 @@ HTTP method 중 PUT, POST에 JSON파라미터를 입력받아 HTTP Request하는
 {% highlight json %}
 {
     "id": 1002,
-    "name": "swift"
+    "name": "swift",
     "cc": [1,2,5,6]
 }
 {% endhighlight %}
