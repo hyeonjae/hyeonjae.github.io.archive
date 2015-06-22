@@ -7,7 +7,7 @@ categories: llvm
 
 # Emscripten이란
 
-Emscripten은 LLVM bitcode를 Javascript코드를 만들어 주는 프로젝트이다. 보통 C/C++로 작성된 코드를 clang을 이용하여 LLVM bitcode를 생성하고, 다시 Emscripten으로 Javascript코드를 만든다. C/C++이 아니어도 LLVM bitcode를 만들 수 있으면 어떤 코드도 Javascript로 변환 가능하다. 
+Emscripten은 LLVM bitcode를 Javascript코드로 만들어 주는 프로젝트이다. 보통 C/C++로 작성된 코드를 clang을 이용하여 LLVM bitcode를 생성하고, 다시 Emscripten으로 Javascript코드를 만든다. C/C++이 아니어도 LLVM bitcode를 만들 수 있으면 어떤 코드도 Javascript로 변환 가능하다. 
 
  > Emscripten compiles LLVM bitcode into JavaScript, which makes it possible to compile C and C++ source code to JavaScript (by first compiling it into LLVM bitcode using Clang), which can be run on the web. Emscripten has been used to port large existing C and C++ codebases, for example Python (the standard CPython implementation), the Bullet physics engine, and the eSpeak speech synthesizer, among many others.
 
