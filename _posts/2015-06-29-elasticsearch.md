@@ -232,7 +232,7 @@ $ curl -XPOST http://localhost:9200/books/book/ -d @book_1
 
 buik API는 한번의 API 호출로 여러개의 명령을 매우 빠르게 처리할 수 있다.
 REST API에서 `/_bulk`로 끝나면 다음과 같은 JSON형태의 입력이 와야 한다.
-{% highlight plain %}
+{% highlight text %}
 action_and_meta_data\n
 optional_source\n
 action_and_meta_data\n
@@ -269,7 +269,7 @@ UDP로 원격에서 bulk를 이용할 수도 있다.
 
 UDP를 이용하기 위해선 Elasticsearch 설정 파일을 수정해야한다.
 `config/elasticsearch.yml`파일에 다음 내용을 추가한다.
-{% highlight plain %}
+{% highlight text %}
 bulk.udp.enabled: true
 {% endhighlight %}
 그리고 Elasticsearch를 다시 실행시킨다.
@@ -391,7 +391,7 @@ $ tar xvfz elasticsearch-1.x.x.tar.gz
 호스트OS의 적당한 포트에 9200으로 연결하도록 설정하자.
 `Vagrantfile`을 수정한다.
 
-{% highlight plain %}
+{% highlight text %}
 config.vm.network "forwarded_port", guest: 9200, host: 9900
 {% endhighlight %}
 
