@@ -1,5 +1,5 @@
 ---
-title:  "Elasticsearch"
+title:  "Elasticsearch 튜토리얼 따라해보기"
 date:   2015-06-29 09:14:26
 categories: elasticsearch
 ---
