@@ -22,6 +22,9 @@ style:
         odd: "#ffffff"
         even: "#222222"
 
+gems:
+  - jekyll-sitemap
+
 links:
   - github: "https://github.com/hyeonjae/"
 
