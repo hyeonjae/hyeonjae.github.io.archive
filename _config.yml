@@ -6,8 +6,8 @@ more: "read more"
 url: "http://hyeonjae.github.io"
 #baseurl: "/" # comment out if in root directory
 
-comments:
-    disqus: "hyeonjae"
+#comments:
+#    disqus: "hyeonjae"
 #    isso: "comments.mysite.org"
 
 style:
