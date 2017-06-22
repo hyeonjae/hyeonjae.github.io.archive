@@ -35,7 +35,8 @@ function Person(name, age, job) {
     this.job = job;
     this.sayName = function() {
         alert(this.name);
-    }
+    };
+    return o;
 }
 
 var person1 = new Person("Nicholas", 29, "Software Engineer");
